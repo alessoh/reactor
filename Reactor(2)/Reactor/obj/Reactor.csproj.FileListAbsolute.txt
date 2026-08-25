@@ -1,0 +1,15 @@
+C:\myPrograms\DYOR\Reactor\Reactor\bin\Debug\Reactor.exe
+C:\myPrograms\DYOR\Reactor\Reactor\bin\Debug\Reactor.pdb
+C:\myPrograms\DYOR\Reactor\Reactor\obj\Debug\ResolveAssemblyReference.cache
+C:\myPrograms\DYOR\Reactor\Reactor\obj\Debug\Reactor.Properties.Resources.resources
+C:\myPrograms\DYOR\Reactor\Reactor\obj\Debug\Reactor.csproj.GenerateResource.Cache
+C:\myPrograms\DYOR\Reactor\Reactor\obj\Debug\Reactor.exe
+C:\myPrograms\DYOR\Reactor\Reactor\obj\Debug\Reactor.pdb
+C:\myPrograms\DYOR\Reactor\Reactor\obj\Debug\Reactor.FrmMain.resources
+C:\myPrograms\DYOR\Reactor\Reactor\obj\Debug\Reactor.AboutBox1.resources
+C:\myPrograms\DYOR\backup\ReactorSaturday\Reactor\obj\Debug\Reactor.exe
+C:\myPrograms\DYOR\backup\ReactorSaturday\Reactor\obj\Debug\Reactor.pdb
+C:\myPrograms\DYOR\Reactor\Reactor\bin\Debug\Reactor.exe.config
+C:\myPrograms\DYOR\Reactor\Reactor\obj\Debug\Reactor.Report1.rdlc
+C:\myPrograms\DYOR\Reactor\Reactor\obj\Debug\RdlCompile.cache
+C:\myPrograms\DYOR\Reactor\Reactor\obj\Debug\RdlCompile.compiled

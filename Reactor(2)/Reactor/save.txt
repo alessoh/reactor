@@ -1,0 +1,181 @@
+       //
+        //  Text File I/O 
+        //
+        // //////////////////////////////////////
+        // //////////////////////////////////////
+        // //////////////////////////////////////
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabPage1;
+            //
+            // if the text has changed since the last save, ask first
+            // before clearing the text
+            if (textBox38.Modified == true)
+            {
+                string str;
+                if (m_strFileName.Length > 0)
+                {
+                    str = m_strFileName;
+                }
+                else
+                {
+                    str = "The text in the edit control ";
+                }
+                str += " has changed. Do you want to save it?";
+                if (MessageBox.Show(str, "TextChanged",
+                    MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+
+                    saveToolStripMenuItem_Click(sender, e);
+                }
+            }
+            //
+         
+            // & set the modified flag to false
+            textBox38.Modified = false;
+            // Empty the file name
+            m_strFileName = "";
+           
+        }
+
+         private void openToolStripMenuItem_Click(object sender, EventArgs e)
+            {
+           
+            openFileDialog2.FileName = m_strFileName;
+            // Set the filter for text files
+            openFileDialog2.Filter = MyFilterString;
+            // Show the Read Only check box on the dialog box
+            openFileDialog2.ShowReadOnly = true;
+            // The default extension is for text files
+            openFileDialog2.DefaultExt = ".txt";
+            if (openFileDialog2.ShowDialog() ==
+                DialogResult.Cancel)
+            {
+                return;
+            }
+            this.m_strFileName = openFileDialog1.FileName;
+            FileStream strm;
+            try
+            {
+                strm = new FileStream(m_strFileName,
+                    FileMode.Open,
+                    FileAccess.Read);
+                StreamReader reader = new StreamReader(strm);
+                textBox38.Text = reader.ReadToEnd();
+                // Save the state of the read only box
+                m_bReadOnly = openFileDialog1.ReadOnlyChecked;
+                strm.Close();
+                // Set the selection so the caret is at the top of the file
+                textBox38.SelectionStart = 0;
+                textBox38.SelectionLength = 0;
+                // Adding text to the text box sets its Modified property to
+                // true. The file has not actually been modified, so reset
+                // the Modified property.
+                textBox38.Modified = false;
+             
+            }
+            // Catch the exception when the file cannot be found.
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("Cannot open file", "Warning");
+            }
+            // Erase any text in the text box.
+            tabControl1.SelectedTab = tabPage1;
+        }
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+
+            {
+            if (m_bReadOnly)
+            {
+                MessageBox.Show("File is open as Read-Only",
+                    "Warning");
+                return;
+            }
+            if (m_strFileName.Length == 0)
+            {
+                saveAsToolStripMenuItem_Click(sender, e);
+                return;
+            }
+            if (textBox38.Modified == false)
+            {
+                return;
+            }
+            if (m_strFileName.Length == 0)
+            {
+                return;
+            }
+            FileStream strm;
+            try
+            {
+                strm = new FileStream(m_strFileName,
+                    FileMode.Open,
+                    FileAccess.Write);
+                StreamWriter writer = new StreamWriter(strm);
+                writer.Write(textBox38.Text);
+                writer.Flush();
+                // Chop off any straggler text in the file.
+                strm.SetLength(textBox38.Text.Length);
+                strm.Close();
+                textBox38.Modified = false;
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("Cannot open file", "Warning");
+            }
+            catch (NotSupportedException)
+            {
+                MessageBox.Show("Cannot write to file", "Warning");
+            }
+            catch (UnauthorizedAccessException)
+            {
+                MessageBox.Show("Not authorized to write to file",
+                    "Warning");
+            }
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (m_strFileName.Length > 0)
+            {
+                saveFileDialog2.FileName = m_strFileName;
+            }
+            if (saveFileDialog2.ShowDialog() ==
+                DialogResult.Cancel)
+            {
+                return;
+            }
+            if (saveFileDialog2.FileName.Length == 0)
+            {
+                return;
+            }
+            string fn = saveFileDialog2.FileName;
+            FileStream strm;
+            try
+            {
+                strm = new FileStream(fn, FileMode.OpenOrCreate,
+                    FileAccess.Write);
+                StreamWriter writer = new StreamWriter(strm);
+                writer.Write(textBox38.Text);
+                writer.Flush();
+                // Chop off any straggler text in the file.
+                strm.SetLength(textBox38.Text.Length);
+                strm.Close();
+                textBox38.Modified = false;
+                m_strFileName = fn;
+             
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("Cannot open file", "Warning");
+            }
+            catch (NotSupportedException)
+            {
+                MessageBox.Show("Cannot write to file", "Warning");
+            }
+            catch (UnauthorizedAccessException)
+            {
+                MessageBox.Show("Not authorized to write to file",
+                    "Warning");
+            }
+        }

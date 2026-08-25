@@ -1,0 +1,14 @@
+connection.Open();
+SqlDataReader reader =
+  selectCommand.ExecuteReader(CommandBehavior.CloseConnection);
+List<Product> products = new List<Products>;
+while (reader.Read())
+{
+ Product p new Product();
+   p.Code = reader["ProductCode"].ToString().Trim();
+   p.Description = (string) reader["description"];
+   p.Price = (decimal) reader["UnitPrice"];
+   products.Add.(p);
+}
+reader.Close();
+   

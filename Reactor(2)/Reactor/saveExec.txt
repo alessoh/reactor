@@ -1,0 +1,22 @@
+private void btnAdd_Click(object sender, System.EventArgs e)
+		{
+			frmNewProduct newProductForm = new frmNewProduct();
+			Product product = newProductForm.GetNewProduct();
+			if (product != null)
+			{
+				products.Add(product);
+				ProductDB.SaveProducts(products);
+				FillProductListBox();
+			}
+		}
+
+
+	private void btnSave_Click(object sender, System.EventArgs e)
+		{
+			if (IsValidData())
+			{
+				product = new Product(txtCode.Text,
+					txtDescription.Text, Convert.ToDecimal(txtPrice.Text));
+				this.Close();
+			}
+		}

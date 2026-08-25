@@ -1,0 +1,35 @@
+MySqlCommand command = con.CreateCommand(); 
+command.CommandText = "SELECT image FROM image WHERE id=11"; 
+con.Open(); 
+byte[] imagedata=(byte[])(command.ExecuteScalar()); 
+con.Close(); MemoryStream mem = new MemoryStream(imagedata); 
+pictureBox1.Image = Image.FromStream(mem); 
+
+i have some problem here thatparameter is not valid exception .Please tell me any one how to retrieve a image saved in database and tell me how to convert a pdf to format to store in database 
+
+ 
+Hi, Narayanc1
+
+Usually, we save big files dependant from the database and remain their path in the database. (it doesn't need any convertion) And also we can save the files into binary.(it need to do convertion)
+
+So I should explain the second one,
+
+First, in sql server, you must set the field as binary type(including varbinary(MAX), binary). Then, in your program, you can convert the specific file into byte array like:
+
+
+Code SnippetFileStream st = new FileStream(@"C:\filename.pdf", FileMode.Open);
+            byte[] buffer = new byte[st.Length];
+            st.Read(buffer, 0, (int)st.Length);
+            st.Close();
+ Note above is just an example to show how it works, when you deal with a big file integer may be too short, in which case you should read the file more than once into the byte array.
+
+Finally, pass the byte array into the database:
+
+Code SnippetSqlConnection conn = new SqlConnection("...");
+            SqlCommand cmd = new SqlCommand("UPDATE SomeTable SET image=@image WHERE ID = 1", conn);
+            cmd.Parameters.AddWithValue("@image", buffer);
+            conn.Open();
+            int i = cmd.ExecuteNonQuery();
+            conn.Close();
+
+The sample just simply assign an image to a cell which id equal 1

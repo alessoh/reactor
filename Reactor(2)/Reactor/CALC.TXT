@@ -1,0 +1,140 @@
+' ------------------------------------------------------------------------
+'               Copyright (C) 1991 Microsoft Corporation
+'
+' You have a royalty-free right to use, modify, reproduce and distribute
+' the Sample Application Files (and/or any modified version) in any way
+' you find useful, provided that you agree that Microsoft has no warranty,
+' obligations or liability for any Sample Application Files.
+' ------------------------------------------------------------------------
+Option Explicit
+Dim Op1, Op2                ' Previously input operand.
+Dim DecimalFlag As Integer  ' Decimal point present yet?
+Dim NumOps As Integer       ' Number of operands.
+Dim LastInput               ' Indicate type of last keypress.
+Dim OpFlag                  ' Indicate pending operation.
+Dim TempReadout
+
+' Click event procedure for C (cancel) key.
+' Reset the display and initializes variables.
+'
+Sub Cancel_Click ()
+    ReadOut = "0."
+    Op1 = 0
+    Op2 = 0
+    Form_Load
+End Sub
+
+' Click event procedure for CE (cancel entry) key.
+'
+Sub CancelEntry_Click ()
+    ReadOut = "0."
+    DecimalFlag = False
+    LastInput = "CE"
+End Sub
+
+' Click event procedure for decimal point (.) key.
+' If last keypress was an operator, initialize
+' readout to "0." Otherwise, append a decimal
+' point to the display.
+'
+Sub Decimal_Click ()
+    If LastInput = "NEG" Then
+	ReadOut = "-0."
+    ElseIf LastInput <> "NUMS" Then
+	ReadOut = "0."
+    End If
+    DecimalFlag = True
+    LastInput = "NUMS"
+End Sub
+
+' Initialization routine for the form.
+' Set all variables to initial values.
+'
+Sub Form_Load ()
+    DecimalFlag = False
+    NumOps = 0
+    LastInput = "NONE"
+    OpFlag = " "
+End Sub
+
+' Click event procedure for number keys (0-9).
+' Appends new number to the number in the display.
+'
+Sub Number_Click (Index As Integer)
+    If LastInput <> "NUMS" Then
+	ReadOut = "."
+	DecimalFlag = False
+    End If
+    If DecimalFlag Then
+	ReadOut = ReadOut + Number(Index).Caption
+    Else
+	ReadOut = Left(ReadOut, InStr(ReadOut, ".") - 1) + Number(Index).Caption + "."
+    End If
+    If LastInput = "NEG" Then ReadOut = "-" & ReadOut
+    LastInput = "NUMS"
+End Sub
+
+' Click event procedure for operator keys (+, -, x, /, =).
+' If the immediately preceeding keypress was part of a
+' number, increment NumOps. If one operand is present,
+' set Op1. If two are present, set Op1 equal to the
+' result of the operation on Op1 and the current
+' input string, and display the result.
+'
+Sub Operator_Click (Index As Integer)
+    TempReadout = ReadOut
+    If LastInput = "NUMS" Then
+	NumOps = NumOps + 1
+    End If
+    Select Case NumOps
+	Case 0
+	If Operator(Index).Caption = "-" And LastInput <> "NEG" Then
+	    ReadOut = "-" & ReadOut
+	    LastInput = "NEG"
+	End If
+	Case 1
+	Op1 = ReadOut
+	If Operator(Index).Caption = "-" And LastInput <> "NUMS" And OpFlag <> "=" Then
+	    ReadOut = "-"
+	    LastInput = "NEG"
+	End If
+	Case 2
+	Op2 = TempReadout
+	Select Case OpFlag
+	    Case "+"
+		Op1 = Val(Op1) + Val(Op2)
+	    Case "-"
+		Op1 = Op1 - Op2
+	    Case "X"
+		Op1 = Op1 * Op2
+	    Case "/"
+		If Op2 = 0 Then
+		   MsgBox "Can't divide by zero", 48, "Calculator"
+		Else
+		   Op1 = Op1 / Op2
+		End If
+	    Case "="
+		Op1 = Op2
+	    Case "%"
+		Op1 = Op1 * Op2
+	    End Select
+	ReadOut = Op1
+	NumOps = 1
+    End Select
+    If LastInput <> "NEG" Then
+	LastInput = "OPS"
+	OpFlag = Operator(Index).Caption
+    End If
+End Sub
+
+' Click event procedure for percent key (%).
+' Compute and display a percentage of the first operand.
+'
+Sub Percent_Click ()
+    ReadOut = ReadOut / 100
+    LastInput = "Ops"
+    OpFlag = "%"
+    NumOps = NumOps + 1
+    DecimalFlag = True
+End Sub
+

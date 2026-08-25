@@ -1,0 +1,50 @@
+Sub Command1_Click ()
+Unload Me
+End Sub
+
+Sub Form_Load ()
+
+text1.Text = inputtext1
+text2.Text = inputtext2
+Text3.Text = InputText3
+ 
+text4.Text = inputtext4
+Text5.Text = InputText5
+text6.Text = inputtext6
+Text7.Text = InputText7
+text8.Text = inputtext8
+Text9.Text = InputText9
+text10.Text = inputtext10
+Text11.Text = InputText11
+text12.Text = inputtext12
+Text13.Text = InputText13
+
+End Sub
+
+Sub Text11_Change ()
+InputText11 = Text11.Text
+End Sub
+
+Sub Text13_Change ()
+InputText13 = Text13.Text
+End Sub
+
+Sub Text3_Change ()
+    
+ InputText3 = Text3.Text
+      
+End Sub
+
+Sub Text5_Change ()
+   
+    InputText5 = Text5.Text
+End Sub
+
+Sub Text7_Change ()
+InputText7 = Text7.Text
+End Sub
+
+Sub Text9_Change ()
+InputText9 = Text9.Text
+End Sub
+
