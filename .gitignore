@@ -21,3 +21,9 @@ rad.json
 *.flf
 #Test results file
 TestResults.xml
+# Next.js reconstruction
+web/node_modules/
+web/.next/
+web/out/
+web/.vercel/
+web/next-env.d.ts

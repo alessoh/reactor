@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+/* Light mode only — the program is a paper-and-instruments workspace. */
+:root {
+  color-scheme: light;
+
+  --paper: #f6f5f1;
+  --surface: #ffffff;
+  --sunken: #f0eee8;
+  --line: #e0ddd4;
+  --line-strong: #cbc7ba;
+  --ink: #1b1a17;
+  --ink-2: #4a4741;
+  --muted: #7d786e;
+
+  --accent: #0f766e;
+  --accent-soft: #e6f2f0;
+  --accent-line: #9ecfc9;
+
+  --hot: #b4530a;
+  --hot-soft: #fdf1e5;
+  --cold: #1d5c9e;
+  --cold-soft: #eaf2fa;
+  --danger: #a52a2a;
+  --danger-soft: #fbeeee;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-sunken: var(--sunken);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-ink: var(--ink);
+  --color-ink2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accentsoft: var(--accent-soft);
+  --color-accentline: var(--accent-line);
+  --color-hot: var(--hot);
+  --color-hotsoft: var(--hot-soft);
+  --color-cold: var(--cold);
+  --color-coldsoft: var(--cold-soft);
+  --color-danger: var(--danger);
+  --color-dangersoft: var(--danger-soft);
+}
+
+html,
+body {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+body {
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.num {
+  font-family: var(--font-mono), ui-monospace, "SF Mono", Menlo, monospace;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* Small-caps section label used throughout the panels */
+.label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Focus ring */
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* Range inputs styled as instrument sliders */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 22px;
+  background: transparent;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--line-strong);
+}
+input[type="range"]::-moz-range-track {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--line-strong);
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -7px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--accent);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.18);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--accent);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.18);
+}
+
+/* Coolant flow animation in the schematic */
+@keyframes flowdash {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+.flow {
+  stroke-dasharray: 7 5;
+  animation: flowdash 1.1s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .flow {
+    animation: none;
+  }
+}
+
+::selection {
+  background: var(--accent-soft);
+}
+
+/* Thin scrollbars in the panels */
+.thin-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-strong) transparent;
+}
+.thin-scroll::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+.thin-scroll::-webkit-scrollbar-thumb {
+  background: var(--line-strong);
+  border-radius: 6px;
+  border: 3px solid var(--paper);
+}
