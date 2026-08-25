@@ -1,0 +1,136 @@
+<style>body{margin:0;background:#fff;font-family:Inter,"Segoe UI",Arial,sans-serif}</style>
+<div style="width:900px;padding:10px">
+<svg viewBox="0 0 900 660" width="900" height="660" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="h" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 z" fill="#b4530a"/></marker>
+    <marker id="c" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 z" fill="#1d5c9e"/></marker>
+  </defs>
+
+  <!-- ==================== (a) CLOSED LOOP ==================== -->
+  <text x="20" y="22" font-size="13.5" font-weight="600" fill="#0f766e">(a) Closed loop &#8212; water, helium, or sodium primary coolant</text>
+
+  <g transform="translate(0,30)">
+  <!-- vessel -->
+  <path d="M40,88 a34,18 0 0 1 68,0 V178 a34,16 0 0 1 -68,0 Z" fill="#fff" stroke="#1b1a17" stroke-width="1.6"/>
+  <rect x="58" y="114" width="32" height="34" fill="#e6f2f0" stroke="#0f766e" stroke-width="1.4"/>
+  <line x1="64" y1="60" x2="64" y2="90" stroke="#1b1a17" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="74" y1="60" x2="74" y2="90" stroke="#1b1a17" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="84" y1="60" x2="84" y2="90" stroke="#1b1a17" stroke-width="2.2" stroke-linecap="round"/>
+  <text x="74" y="54" text-anchor="middle" font-size="9.5" fill="#7d786e">control rods</text>
+  <text x="74" y="212" text-anchor="middle" font-size="10.5" font-weight="600">Reactor core</text>
+
+  <!-- hot leg -->
+  <path d="M108,102 H188" stroke="#b4530a" stroke-width="3" marker-end="url(#h)" fill="none"/>
+  <text x="148" y="86" text-anchor="middle" font-size="10" fill="#b4530a">&#9312; hot leg</text>
+  <text x="148" y="96" text-anchor="middle" font-size="9.5" fill="#b4530a">T<tspan font-size="7.5" dy="2">max</tspan></text>
+
+  <!-- steam generator -->
+  <rect x="192" y="76" width="52" height="126" rx="24" fill="#fff" stroke="#1b1a17" stroke-width="1.6"/>
+  <path d="M202,128 h32 M202,142 h32 M202,156 h32" stroke="#cbc7ba" stroke-width="1"/>
+  <text x="256" y="226" text-anchor="start" font-size="10.5" font-weight="600">Steam generator</text>
+
+  <!-- cold leg + primary pump -->
+  <path d="M192,184 H150 V262 H26 V122 H36" stroke="#1d5c9e" stroke-width="2.6" marker-end="url(#c)" fill="none"/>
+  <circle cx="110" cy="262" r="10" fill="#fff" stroke="#1b1a17" stroke-width="1.4"/>
+  <path d="M106,257 l8,5 l-8,5 z" fill="#1b1a17"/>
+  <text x="110" y="284" text-anchor="middle" font-size="9.5" fill="#4a4741">primary pump</text>
+  <text x="186" y="170" text-anchor="end" font-size="10" fill="#1d5c9e">&#9314; cold leg</text>
+  <text x="186" y="180" text-anchor="end" font-size="9.5" fill="#1d5c9e">T<tspan font-size="7.5" dy="2">min</tspan></text>
+
+  <!-- steam line -->
+  <path d="M218,76 V46 H300" stroke="#b4530a" stroke-width="2.8" marker-end="url(#h)" fill="none"/>
+  <text x="258" y="38" text-anchor="middle" font-size="10" fill="#b4530a">&#9315; steam, 516 K</text>
+
+  <!-- turbine + generator -->
+  <path d="M304,20 L360,6 L360,86 L304,72 Z" fill="#fff" stroke="#1b1a17" stroke-width="1.5"/>
+  <text x="332" y="49" text-anchor="middle" font-size="9.5" font-weight="600">Turbine</text>
+  <line x1="360" y1="46" x2="382" y2="46" stroke="#1b1a17" stroke-width="3"/>
+  <circle cx="406" cy="46" r="23" fill="#fff" stroke="#1b1a17" stroke-width="1.6"/>
+  <text x="406" y="51" text-anchor="middle" font-size="12" font-weight="600">G</text>
+  <path d="M429,46 H472" stroke="#1b1a17" stroke-width="1.6"/>
+  <path d="M472,38 v16 M478,38 v16" stroke="#1b1a17" stroke-width="1.6"/>
+  <text x="490" y="42" font-size="10" fill="#4a4741">to grid</text>
+  <text x="490" y="56" font-size="10" fill="#4a4741">&#951; &#8776; 34 %</text>
+
+  <!-- exhaust -->
+  <path d="M332,90 V126 H382" stroke="#b4530a" stroke-width="2.2" marker-end="url(#h)" fill="none" opacity="0.75"/>
+  <text x="336" y="112" font-size="10" fill="#b4530a">&#9316; exhaust</text>
+
+  <!-- condenser -->
+  <rect x="386" y="106" width="104" height="42" rx="6" fill="#fff" stroke="#1b1a17" stroke-width="1.5"/>
+  <path d="M396,118 q8,-6 16,0 t16,0 t16,0 t16,0" fill="none" stroke="#1d5c9e" stroke-width="1.1"/>
+  <path d="M396,130 q8,-6 16,0 t16,0 t16,0 t16,0" fill="none" stroke="#1d5c9e" stroke-width="1.1"/>
+  <path d="M396,142 q8,-6 16,0 t16,0 t16,0 t16,0" fill="none" stroke="#1d5c9e" stroke-width="1.1"/>
+  <text x="438" y="166" text-anchor="middle" font-size="10.5" font-weight="600">Condenser</text>
+  <text x="438" y="179" text-anchor="middle" font-size="9.5" fill="#7d786e">&#9317; 41 K, 0.077 atm</text>
+
+  <!-- feedwater -->
+  <path d="M396,148 V262 H234 V202" stroke="#1d5c9e" stroke-width="2.6" marker-end="url(#c)" fill="none"/>
+  <circle cx="312" cy="262" r="10" fill="#fff" stroke="#1b1a17" stroke-width="1.4"/>
+  <path d="M308,257 l8,5 l-8,5 z" fill="#1b1a17"/>
+  <text x="312" y="284" text-anchor="middle" font-size="9.5" fill="#4a4741">condensate pump</text>
+  <text x="256" y="250" font-size="10" fill="#1d5c9e">&#9318; feedwater</text>
+
+  <!-- side note -->
+  <g font-size="10" fill="#4a4741">
+    <text x="560" y="106" font-weight="600" fill="#1b1a17">Two separate fluid circuits</text>
+    <text x="560" y="122">The primary coolant never leaves the</text>
+    <text x="560" y="136">core loop. Heat crosses into the secondary</text>
+    <text x="560" y="150">circuit through the steam generator tubes,</text>
+    <text x="560" y="164">so activated coolant stays inside</text>
+    <text x="560" y="178">containment.</text>
+    <text x="560" y="202" font-weight="600" fill="#1b1a17">State points &#9315;&#8211;&#9318;</text>
+    <text x="560" y="218">Fixed at the values in Appendix A,</text>
+    <text x="560" y="232">Table V. They do not vary with</text>
+    <text x="560" y="246">your design.</text>
+  </g>
+
+  </g>
+
+  <line x1="20" y1="326" x2="880" y2="326" stroke="#e0ddd4"/>
+
+  <!-- ==================== (b) OPEN LOOP ==================== -->
+  <text x="20" y="356" font-size="13.5" font-weight="600" fill="#0f766e">(b) Open loop &#8212; hydrogen coolant drives the turbine directly</text>
+
+  <g transform="translate(0,312)">
+    <path d="M40,88 a34,18 0 0 1 68,0 V178 a34,16 0 0 1 -68,0 Z" fill="#fff" stroke="#1b1a17" stroke-width="1.6"/>
+    <rect x="58" y="114" width="32" height="34" fill="#e6f2f0" stroke="#0f766e" stroke-width="1.4"/>
+    <line x1="64" y1="60" x2="64" y2="90" stroke="#1b1a17" stroke-width="2.2" stroke-linecap="round"/>
+    <line x1="74" y1="60" x2="74" y2="90" stroke="#1b1a17" stroke-width="2.2" stroke-linecap="round"/>
+    <line x1="84" y1="60" x2="84" y2="90" stroke="#1b1a17" stroke-width="2.2" stroke-linecap="round"/>
+    <text x="74" y="212" text-anchor="middle" font-size="10.5" font-weight="600">Reactor core</text>
+
+    <path d="M108,102 H300" stroke="#b4530a" stroke-width="3" marker-end="url(#h)" fill="none"/>
+    <text x="204" y="92" text-anchor="middle" font-size="10" fill="#b4530a">hot hydrogen, up to 2400 K</text>
+
+    <path d="M304,76 L360,62 L360,142 L304,128 Z" fill="#fff" stroke="#1b1a17" stroke-width="1.5"/>
+    <text x="332" y="105" text-anchor="middle" font-size="9.5" font-weight="600">Turbine</text>
+    <line x1="360" y1="102" x2="382" y2="102" stroke="#1b1a17" stroke-width="3"/>
+    <circle cx="406" cy="102" r="23" fill="#fff" stroke="#1b1a17" stroke-width="1.6"/>
+    <text x="406" y="107" text-anchor="middle" font-size="12" font-weight="600">G</text>
+    <path d="M429,102 H472" stroke="#1b1a17" stroke-width="1.6"/>
+    <path d="M472,94 v16 M478,94 v16" stroke="#1b1a17" stroke-width="1.6"/>
+    <text x="490" y="98" font-size="10" fill="#4a4741">to grid</text>
+    <text x="490" y="112" font-size="10" fill="#4a4741">&#951; = 36 % (fixed)</text>
+
+    <path d="M332,146 V190 H420" stroke="#b4530a" stroke-width="2.2" marker-end="url(#h)" fill="none" opacity="0.75"/>
+    <text x="336" y="210" font-size="10" fill="#7d786e">exhausted &#8212; energy not recovered</text>
+
+    <rect x="180" y="230" width="92" height="42" rx="6" fill="#fff" stroke="#1b1a17" stroke-width="1.5"/>
+    <text x="226" y="249" text-anchor="middle" font-size="10" font-weight="600">H<tspan font-size="7.5" dy="2">2</tspan><tspan dy="-2"> supply</tspan></text>
+    <text x="226" y="263" text-anchor="middle" font-size="9" fill="#7d786e">consumable</text>
+    <path d="M180,251 H26 V122 H36" stroke="#1d5c9e" stroke-width="2.6" marker-end="url(#c)" fill="none"/>
+
+    <g font-size="10" fill="#4a4741">
+      <text x="560" y="130" font-weight="600" fill="#1b1a17">One circuit, no recovery</text>
+      <text x="560" y="146">There is no steam generator, condenser,</text>
+      <text x="560" y="160">or feed pump. Coolant is consumed, so</text>
+      <text x="560" y="174">run time is limited by tank capacity.</text>
+      <text x="560" y="198">Choosing hydrogen in the DESIGN PHASE</text>
+      <text x="560" y="212">forces this configuration automatically.</text>
+    </g>
+  </g>
+</svg>
+</div>

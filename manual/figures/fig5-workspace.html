@@ -1,0 +1,67 @@
+<style>
+  body { margin:0; background:#fff; font-family:Inter,"Segoe UI",Arial,sans-serif; }
+  .wrap { width:1460px; padding:10px 0 0 20px; }
+  .shot { position:relative; width:1440px; height:830px; }
+  .shot img { width:1440px; height:830px; display:block; }
+  .shot svg { position:absolute; top:0; left:-20px; }
+  .legend { display:grid; grid-template-columns:1fr 1fr; gap:7px 34px;
+            padding:18px 20px 6px 0; font-size:13px; color:#4a4741; }
+  .legend div { display:flex; gap:9px; align-items:baseline; line-height:1.45; }
+  .n { display:inline-flex; align-items:center; justify-content:center;
+       min-width:19px; height:19px; border-radius:50%; background:#b4530a; color:#fff;
+       font-size:11.5px; font-weight:700; flex:0 0 auto; }
+  b { color:#1b1a17; font-weight:600; }
+</style>
+<div class="wrap">
+  <div class="shot">
+    <img src="shot-default.png" alt="">
+    <svg width="1460" height="830" viewBox="0 0 1460 830" xmlns="http://www.w3.org/2000/svg">
+      <style>
+        .cal { fill:#b4530a; }
+        .cnum { fill:#fff; font-size:14px; font-weight:700;
+                font-family:Inter,"Segoe UI",Arial,sans-serif; text-anchor:middle; }
+        .ring { fill:none; stroke:#b4530a; stroke-width:2; opacity:0.6; }
+        .lead { stroke:#b4530a; stroke-width:1.5; fill:none; }
+      </style>
+
+      <!-- 1  menu bar + save case : circle sits in the empty middle of the header -->
+      <circle class="cal" cx="880" cy="50" r="15"/>
+      <text class="cnum" x="880" y="55">1</text>
+      <path class="lead" d="M896,50 H975"/>
+
+      <!-- 2  material selection -->
+      <rect class="ring" x="56" y="170" width="450" height="378" rx="8"/>
+      <circle class="cal" cx="44" cy="170" r="15"/>
+      <text class="cnum" x="44" y="175">2</text>
+
+      <!-- 3  geometry + variables -->
+      <rect class="ring" x="56" y="560" width="450" height="268" rx="8"/>
+      <circle class="cal" cx="44" cy="560" r="15"/>
+      <text class="cnum" x="44" y="565">3</text>
+
+      <!-- 4  system diagram -->
+      <rect class="ring" x="402" y="96" width="622" height="360" rx="8"/>
+      <circle class="cal" cx="390" cy="96" r="15"/>
+      <text class="cnum" x="390" y="101">4</text>
+
+      <!-- 5  key result tiles -->
+      <rect class="ring" x="402" y="472" width="622" height="164" rx="8"/>
+      <circle class="cal" cx="390" cy="472" r="15"/>
+      <text class="cnum" x="390" y="477">5</text>
+
+      <!-- 6  output pages -->
+      <rect class="ring" x="1040" y="96" width="404" height="500" rx="8"/>
+      <circle class="cal" cx="1028" cy="96" r="15"/>
+      <text class="cnum" x="1028" y="101">6</text>
+    </svg>
+  </div>
+
+  <div class="legend">
+    <div><span class="n">1</span><span><b>Menu bar.</b> Files, Design Reactor, Reactor Results, Tools, Help &#8212; and <b>Save case</b>, which adds the current design to the comparison table.</span></div>
+    <div><span class="n">2</span><span><b>Material selection.</b> Six fissile isotopes, five moderators, and four coolants, each with a <b>Define your own</b> option.</span></div>
+    <div><span class="n">3</span><span><b>Geometry and variables.</b> Core dimensions in centimetres, then coolant temperatures, tube diameter, porosity, and flowrate.</span></div>
+    <div><span class="n">4</span><span><b>System diagram.</b> Redraws live for the selected core shape and for open versus closed loop power conversion.</span></div>
+    <div><span class="n">5</span><span><b>Key results.</b> Eight headline figures that recompute on every input change.</span></div>
+    <div><span class="n">6</span><span><b>Output pages.</b> Reactor, Primary, Secondary, State Points, and Summary &#8212; the five reports of the OUTPUT PHASE.</span></div>
+  </div>
+</div>

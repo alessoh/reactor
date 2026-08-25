@@ -161,7 +161,7 @@ export default function Schematic({ d, r }: { d: Design; r: Results }) {
           <rect x="520" y="300" width="100" height="66" rx="8" fill="var(--surface)" stroke={INK} strokeWidth="1.6" />
           <text x="570" y="330" textAnchor="middle" className="fill-[var(--ink)] text-[9.5px] font-semibold">{cool}</text>
           <text x="570" y="345" textAnchor="middle" className="fill-[var(--muted)] text-[8.5px]">supply</text>
-          <path d="M520,333 H236 V320 H123 V246" fill="none" stroke={COLD} strokeWidth="3" strokeLinecap="round"
+          <path d="M520,333 H50 V180 H68" fill="none" stroke={COLD} strokeWidth="3" strokeLinecap="round"
             markerEnd="url(#arrCold)" className="flow" />
           <Tag x={370} y={352} title="Flowrate" value={`${sci(d.flowrate)} kg/s`} />
 
@@ -181,11 +181,11 @@ export default function Schematic({ d, r }: { d: Design; r: Results }) {
           <path d="M314,176 h48 M314,194 h48 M314,212 h48" stroke={LINE} strokeWidth="1.2" />
           <Tag x={386} y={188} title="Steam generator" value={`${SEC_STATE[4].P.toFixed(1)} atm`} anchor="start" />
 
-          <path d="M302,250 H236 V320 H123 V248" fill="none" stroke={COLD} strokeWidth="3.2" strokeLinecap="round"
+          <path d="M302,250 H236 V330 H50 V180 H68" fill="none" stroke={COLD} strokeWidth="3.2" strokeLinecap="round"
             markerEnd="url(#arrCold)" className="flow" />
           <Tag x={269} y={224} title="Cold leg" value={`${d.mintemp} K`} />
-          <Pump x={178} y={320} />
-          <Tag x={178} y={342} title="Primary pump" value={`${sci(r.pumpPower)} MWe`} />
+          <Pump x={168} y={330} />
+          <Tag x={168} y={352} title="Primary pump" value={`${sci(r.pumpPower)} MWe`} />
 
           {/* --- secondary loop --- */}
           <path d="M338,100 V60 H414" fill="none" stroke={HOT} strokeWidth="3.2" strokeLinecap="round"

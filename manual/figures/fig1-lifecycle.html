@@ -1,0 +1,84 @@
+<style>
+  body { margin:0; background:#fff; font-family: Inter, "Segoe UI", Arial, sans-serif; }
+  .wrap { width:900px; padding:14px 10px; }
+  text { font-family: Inter, "Segoe UI", Arial, sans-serif; }
+</style>
+<div class="wrap">
+<svg viewBox="0 0 900 340" width="900" height="340" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 z" fill="#1b1a17"/>
+    </marker>
+    <marker id="loss" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 z" fill="#a52a2a"/>
+    </marker>
+  </defs>
+
+  <!-- stage boxes -->
+  <g font-size="12">
+    <!-- 1 fast fission -->
+    <rect x="20" y="96" width="132" height="66" rx="7" fill="#e6f2f0" stroke="#0f766e" stroke-width="1.4"/>
+    <text x="86" y="118" text-anchor="middle" font-weight="600" fill="#0f766e">Fast fission</text>
+    <text x="86" y="136" text-anchor="middle" font-size="15" font-weight="700" fill="#1b1a17">&#949;</text>
+    <text x="86" y="152" text-anchor="middle" font-size="10" fill="#7d786e">fast-fission factor</text>
+
+    <rect x="205" y="96" width="132" height="66" rx="7" fill="#e6f2f0" stroke="#0f766e" stroke-width="1.4"/>
+    <text x="271" y="118" text-anchor="middle" font-weight="600" fill="#0f766e">Slowing down</text>
+    <text x="271" y="136" text-anchor="middle" font-size="15" font-weight="700" fill="#1b1a17">p</text>
+    <text x="271" y="152" text-anchor="middle" font-size="10" fill="#7d786e">resonance escape</text>
+
+    <rect x="390" y="96" width="132" height="66" rx="7" fill="#e6f2f0" stroke="#0f766e" stroke-width="1.4"/>
+    <text x="456" y="118" text-anchor="middle" font-weight="600" fill="#0f766e">Thermal capture</text>
+    <text x="456" y="136" text-anchor="middle" font-size="15" font-weight="700" fill="#1b1a17">f</text>
+    <text x="456" y="152" text-anchor="middle" font-size="10" fill="#7d786e">thermal utilisation</text>
+
+    <rect x="575" y="96" width="132" height="66" rx="7" fill="#e6f2f0" stroke="#0f766e" stroke-width="1.4"/>
+    <text x="641" y="118" text-anchor="middle" font-weight="600" fill="#0f766e">Fission</text>
+    <text x="641" y="136" text-anchor="middle" font-size="15" font-weight="700" fill="#1b1a17">&#951;</text>
+    <text x="641" y="152" text-anchor="middle" font-size="10" fill="#7d786e">neutrons per absorption</text>
+
+    <rect x="760" y="96" width="120" height="66" rx="7" fill="#fff" stroke="#1b1a17" stroke-width="1.6"/>
+    <text x="820" y="122" text-anchor="middle" font-weight="600">Next</text>
+    <text x="820" y="140" text-anchor="middle" font-weight="600">generation</text>
+  </g>
+
+  <!-- main chain arrows -->
+  <g stroke="#1b1a17" stroke-width="2" fill="none" marker-end="url(#a)">
+    <path d="M152,129 H198"/>
+    <path d="M337,129 H383"/>
+    <path d="M522,129 H568"/>
+    <path d="M707,129 H753"/>
+  </g>
+
+  <!-- leakage losses (down) -->
+  <g stroke="#a52a2a" stroke-width="1.6" fill="none" marker-end="url(#loss)" stroke-dasharray="5 4">
+    <path d="M175,140 V210"/>
+    <path d="M360,140 V210"/>
+    <path d="M545,140 V210"/>
+  </g>
+  <g font-size="10.5" fill="#a52a2a" text-anchor="middle">
+    <text x="175" y="228">fast leakage</text>
+    <text x="175" y="242" font-weight="600">P<tspan font-size="8" dy="2">1</tspan><tspan dy="-2"> = e</tspan><tspan font-size="8" dy="-4">&#8722;B&#178;&#964;</tspan></text>
+    <text x="360" y="228">resonance</text>
+    <text x="360" y="242">capture</text>
+    <text x="545" y="228">thermal leakage</text>
+    <text x="545" y="242" font-weight="600">P<tspan font-size="8" dy="2">2</tspan><tspan dy="-2"> = 1/(1 + L&#178;B&#178;)</tspan></text>
+  </g>
+
+  <!-- feedback loop -->
+  <path d="M820,96 V52 H86 V90" stroke="#1b1a17" stroke-width="1.6" fill="none"
+        marker-end="url(#a)" stroke-dasharray="6 4"/>
+  <text x="453" y="44" text-anchor="middle" font-size="11" fill="#4a4741">
+    one full neutron generation
+  </text>
+
+  <!-- k formula -->
+  <rect x="150" y="282" width="600" height="44" rx="7" fill="#f0eee8" stroke="#cbc7ba"/>
+  <text x="450" y="303" text-anchor="middle" font-size="14" font-weight="600" fill="#1b1a17">
+    k<tspan font-size="10" dy="3">eff</tspan><tspan dy="-3"> = &#949; &#183; p &#183; f &#183; &#951; &#183; P</tspan><tspan font-size="10" dy="3">1</tspan><tspan dy="-3"> &#183; P</tspan><tspan font-size="10" dy="3">2</tspan>
+  </text>
+  <text x="450" y="319" text-anchor="middle" font-size="10.5" fill="#7d786e">
+    Critical when k<tspan font-size="8" dy="2">eff</tspan><tspan dy="-2"> = 1.</tspan> The program solves for the moderator-to-fuel ratio that makes this true.
+  </text>
+</svg>
+</div>

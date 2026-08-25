@@ -27,3 +27,9 @@ web/.next/
 web/out/
 web/.vercel/
 web/next-env.d.ts
+
+# Manual build artefacts
+manual/node_modules/
+manual/pages/
+manual/package-lock.json
+manual/package.json

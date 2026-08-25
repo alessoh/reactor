@@ -1,0 +1,78 @@
+<style>body{margin:0;background:#fff;font-family:Inter,"Segoe UI",Arial,sans-serif}</style>
+<div style="width:900px;padding:10px">
+<svg viewBox="0 0 900 330" width="900" height="330" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="d2" markerWidth="7" markerHeight="7" refX="3.5" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 z" fill="#4a4741"/></marker>
+    <marker id="d2s" markerWidth="7" markerHeight="7" refX="3" refY="3" orient="auto">
+      <path d="M6,0 L0,3 L6,6 z" fill="#4a4741"/></marker>
+  </defs>
+
+  <!-- ============ left: unit cell cross-section ============ -->
+  <text x="30" y="24" font-size="12.5" font-weight="600" fill="#0f766e">(a) Homogenised unit cell</text>
+
+  <g transform="translate(60,50)">
+    <rect x="0" y="0" width="200" height="200" fill="#e6f2f0" stroke="#0f766e" stroke-width="1.5"/>
+    <circle cx="100" cy="100" r="52" fill="#fdf1e5" stroke="#b4530a" stroke-width="1.6"/>
+    <circle cx="100" cy="100" r="2.6" fill="#b4530a"/>
+    <path d="M100,100 L152,100" stroke="#4a4741" stroke-width="1" marker-end="url(#d2)"/>
+    <text x="126" y="94" text-anchor="middle" font-size="10.5" fill="#4a4741">r<tspan font-size="8" dy="2.5">f</tspan><tspan dy="-2.5"></tspan></text>
+    <text x="100" y="176" text-anchor="middle" font-size="10.5" font-weight="600" fill="#b4530a">coolant channel</text>
+    <text x="34" y="26" font-size="10.5" font-weight="600" fill="#0f766e">fuel +</text>
+    <text x="34" y="40" font-size="10.5" font-weight="600" fill="#0f766e">moderator</text>
+    <path d="M0,214 H200" stroke="#4a4741" stroke-width="1" marker-start="url(#d2s)" marker-end="url(#d2)"/>
+    <text x="100" y="230" text-anchor="middle" font-size="10.5" fill="#4a4741">cell pitch</text>
+  </g>
+
+  <g font-size="10.5" fill="#4a4741">
+    <text x="290" y="72" font-weight="600" fill="#1b1a17">Porosity &#949;</text>
+    <text x="290" y="88">The coolant volume fraction. It sets</text>
+    <text x="290" y="102">the number of channels, the coolant</text>
+    <text x="290" y="116">mass, and the solid volume that holds</text>
+    <text x="290" y="130">fuel and moderator.</text>
+    <rect x="288" y="142" width="230" height="72" rx="6" fill="#f0eee8" stroke="#cbc7ba"/>
+    <text x="298" y="160" font-size="10.5">N<tspan font-size="8" dy="2.5">channels</tspan><tspan dy="-2.5"></tspan> = &#949;V / (&#960;d&#178;/4 &#183; L)</text>
+    <text x="298" y="178" font-size="10.5">V<tspan font-size="8" dy="2.5">solid</tspan><tspan dy="-2.5"></tspan> = V(1 &#8722; &#949;)</text>
+    <text x="298" y="196" font-size="10.5">r<tspan font-size="8" dy="2.5">f</tspan><tspan dy="-2.5"></tspan> = d / [2(1 &#8722; &#949;)],  minimum 0.4 cm</text>
+    <text x="290" y="234" font-size="10" fill="#7d786e">d = tube diameter, L = channel length, V = core volume</text>
+  </g>
+
+  <!-- ============ right: radial temperature profile ============ -->
+  <text x="560" y="24" font-size="12.5" font-weight="600" fill="#0f766e">(b) Radial temperature profile</text>
+
+  <g transform="translate(590,50)">
+    <!-- axes -->
+    <line x1="0" y1="0" x2="0" y2="200" stroke="#cbc7ba" stroke-width="1.2"/>
+    <line x1="0" y1="200" x2="250" y2="200" stroke="#cbc7ba" stroke-width="1.2"/>
+    <text transform="translate(-32,100) rotate(-90)" text-anchor="middle" font-size="10.5" fill="#4a4741">Temperature</text>
+    <text x="125" y="228" text-anchor="middle" font-size="10.5" fill="#4a4741">Radius from fuel centreline</text>
+
+    <!-- parabolic fuel profile then drop across film to bulk -->
+    <path d="M6,26 Q60,34 108,110 L150,150 L250,168"
+          fill="none" stroke="#b4530a" stroke-width="2.4"/>
+
+    <!-- reference levels -->
+    <line x1="0" y1="26" x2="250" y2="26" stroke="#e0ddd4" stroke-dasharray="4 4"/>
+    <text x="250" y="22" text-anchor="end" font-size="10" font-weight="600" fill="#b4530a">T<tspan font-size="8" dy="2.5">centreline</tspan><tspan dy="-2.5"></tspan></text>
+    <line x1="0" y1="150" x2="250" y2="150" stroke="#e0ddd4" stroke-dasharray="4 4"/>
+    <text x="250" y="146" text-anchor="end" font-size="10" fill="#4a4741">T<tspan font-size="8" dy="2.5">wall</tspan><tspan dy="-2.5"></tspan></text>
+    <line x1="0" y1="168" x2="250" y2="168" stroke="#e0ddd4" stroke-dasharray="4 4"/>
+    <text x="250" y="186" text-anchor="end" font-size="10" fill="#1d5c9e">T<tspan font-size="8" dy="2.5">bulk</tspan><tspan dy="-2.5"></tspan> (coolant)</text>
+
+    <!-- region separators -->
+    <line x1="108" y1="0" x2="108" y2="200" stroke="#cbc7ba" stroke-dasharray="3 3"/>
+    <line x1="150" y1="0" x2="150" y2="200" stroke="#cbc7ba" stroke-dasharray="3 3"/>
+    <text x="54" y="214" text-anchor="middle" font-size="9.5" fill="#7d786e">fuel</text>
+    <text x="129" y="214" text-anchor="middle" font-size="9.5" fill="#7d786e">clad</text>
+    <text x="200" y="214" text-anchor="middle" font-size="9.5" fill="#7d786e">coolant film</text>
+
+    <!-- delta T bracket -->
+    <path d="M18,26 V150" stroke="#0f766e" stroke-width="1" marker-start="url(#d2s)" marker-end="url(#d2)"/>
+    <text x="26" y="90" font-size="10" fill="#0f766e">&#916;T &#8733; q&#8243;&#8242; r<tspan font-size="8" dy="2.5">f</tspan><tspan dy="-2.5"></tspan>&#178; / k</text>
+  </g>
+
+  <text x="450" y="316" text-anchor="middle" font-size="10.5" fill="#7d786e">
+    The program reports T<tspan font-size="8" dy="2.5">centreline</tspan><tspan dy="-2.5"></tspan> as &#8220;Maximum Fuel Temperature&#8221;. Keep it below about 3000 K for oxide fuel.
+  </text>
+</svg>
+</div>
