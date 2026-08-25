@@ -1,0 +1,644 @@
+
+Sub Form_Load ()
+
+
+     decimal Powerth = 100
+
+     decimal crossfiss = 582;
+     decimal crossabs1 = 106;
+     decimal thermalconduct = 14;
+    decimal  crosscatf = 15;
+    decimal  fcrossabs = 679;
+    decimal  densityf = 19;
+    decimal  Af = 235;
+    decimal  diffus = 7.617;
+    decimal  fermi = 31.36;
+    decimal  densitym = 1;
+    decimal  mcrossabs = .66;
+    decimal  ccrossabs = .66;
+    decimal  Am = 18;
+    decimal  LX = 100;
+    decimal  LY = 100;
+    decimal  LZ = 100;
+    decimal  cr = 50;
+    decimal  r = 50;
+   decimal  cheight = 100;
+    decimal  Volume = (LX * LY * LZ) / (1000000);
+     decimal Buckling = ((pi / LX) ^ 2 + (pi / LY) ^ 2 + (pi / LZ) ^ 2);
+    decimal  porosity = .33;
+    decimal  tubedia = .4;
+    decimal  flowrate = 10000;
+    decimal  tubelength = 100;
+    decimal  Effic = 34;
+    decimal  numbertubes = 2600;
+   decimal   maxtemp = 530;
+   decimal   mintemp = 470;
+   decimal   FuelTemp = 877;
+   decimal   namefuel = "U-235";
+   decimal   namemod = "H2O";
+   string  namecool1 = "H2O";
+    string namecool2 = "H2O";
+    string namegeo = "Rectangular ";
+    decimal pressurec = 46 * safetyfactor;
+    decimal viscosity = .16;
+   decimal  Pri_Pressure = 100;
+  decimal Sec_Temperature(4) = 516;
+  decimal Sec_Pressure(4) = 34.9;
+  decimal Sec_Enthalpy(4) = 1205;
+  decimal Sec_Temperature(5) = 52;
+  decimal Sec_Pressure(5) = .1436;
+  decimal Sec_Enthalpy(5) = 850;
+  decimal Sec_Temperature(6) = 41;
+  decimal Sec_Pressure(6) = .0769;
+  decimal Sec_Enthalpy(6) = 68;
+  decimal Sec_Temperature(7) = 104;
+  decimal Sec_Pressure(7) = 34.9;
+ decimal Sec_Enthalpy(7) = 168;
+
+
+
+ tubearea = (pi * tubedia * tubelength * numbertubes);
+ heatflux = (Powerth * 1000000) / (tubearea);
+
+ 
+
+ Calculation_Phase
+
+
+
+
+
+   string Buffernamecool2 = "H2";
+   string Buffernamecool1 = "H2";
+
+
+   string Buffernamefuel = "Pu-241";
+
+
+  string  Buffernamemod = "H2O";
+
+
+ string  namecool1 = "H2O";
+ string  namecool2 = "H2O";
+ string  MnuWater_click;
+
+
+
+Sub MnuAmericium242_click ()
+     namefuel = "Am-242"
+    crossfiss = 6000
+     crosscatf = 12
+     fcrossabs = 7700
+     densityf = 19
+     Af = 242
+     thermalconduct = 14
+     image4.Picture = GroupPush3D12.PictureUp
+End Sub
+
+Sub MnuBerylium_Click ()
+     namemod = "Be"
+     diffus = 441
+     fermi = 84.64
+     densitym = 1.85
+     mcrossabs = .01
+     Am = 9
+     image3.Picture = GroupPush3D3.PictureUp
+     image12.Picture = GroupPush3D3.PictureUp
+End Sub
+
+
+
+Sub MnuCarbon12_click ()
+     namemod = "C-12"
+     diffus = 4121
+     fermi = 350
+     densitym = 1.9
+     mcrossabs = .004
+     Am = 12
+     image3.Picture = GroupPush3D5.PictureUp
+     image12.Picture = GroupPush3D5.PictureUp
+
+End Sub
+
+Sub MnuCarbon13_CLICK ()
+     namemod = "C-13"
+     diffus = 4121
+     fermi = 350
+     densitym = 1.9
+     mcrossabs = .002
+     Am = 13
+     image3.Picture = GroupPush3D6.PictureUp
+     image12.Picture = GroupPush3D6.PictureUp
+
+End Sub
+
+
+Sub MnuCurium245_click ()
+     namefuel = "Cm-245"
+     crossfiss = 1700
+     crosscatf = 20
+     fcrossabs = 2000
+     densityf = 19
+     Af = 245
+     thermalconduct = 14
+     image4.Picture = GroupPush3D11.PictureUp
+
+End Sub
+
+
+
+   cr = Val(inputtext3)
+   cheight = Val(inputtext5)
+   Volume = Val(inputtext5) * pi * ((Val(inputtext3)) ^ 2) / 1000000
+   namegeo = "Cylindrical "
+   Buckling = (2.405 / (Val(inputtext3))) ^ 2 + (pi / (Val(inputtext5))) ^ 2
+
+
+Sub MnuDesignSummary_Click ()
+   outputtext1 = "DESIGN SUMMARY"
+   If namegeo = "Rectangular " Then
+   OUTPUTTEXT2 = "Length "
+   OUTPUTTEXT3 = LX & "  cm"
+   OUTPUTTEXT4 = "Height"
+   OUTPUTTEXT5 = LY & "  cm"
+   OUTPUTTEXT6 = "Width"
+   OUTPUTTEXT7 = LZ & "  cm"
+   End If
+  ' Format(tubedia, "0.00E+00") & "  cm"
+   If namegeo = "Cylindrical " Then
+   OUTPUTTEXT2 = "Cylindrical Radius"
+   OUTPUTTEXT3 = cr & "  cm"
+   OUTPUTTEXT4 = "Height"
+   OUTPUTTEXT5 = cheight & "  cm"
+   OUTPUTTEXT6 = ""
+   OUTPUTTEXT7 = ""
+End If
+   If namegeo = "Spherical   " Then
+   OUTPUTTEXT2 = "Spherical Radius"
+   OUTPUTTEXT3 = r & "  cm"
+   OUTPUTTEXT4 = ""
+   OUTPUTTEXT5 = ""
+   OUTPUTTEXT6 = ""
+   OUTPUTTEXT7 = ""
+End If
+
+
+Sub MnuDesignYourOwnFuel_Click ()
+   INPUTTEXT1 = "DESIGN YOUR OWN NUCLEAR FUEL INPUT"
+   INPUTTEXT2 = "Thermal Fission Cross Section"
+   inputtext3 = crossfiss & "  barns"
+   InputText4 = "Thermal Absorption Cross Section"
+   inputtext5 = fcrossabs & "  barns"
+   InputText6 = "Thermal Conductivity"
+   inputtext7 = thermalconduct & "  BTU/hr.ft.F"
+   InputText8 = "Density"
+   inputtext9 = densityf & " g/cc"
+   InputText10 = "Atomic Mass Number"
+   inputtext11 = Af
+   InputText12 = "Fuel Name"
+   inputtext13 = namefuel
+   FrmInput.Show 1
+   crossfiss = Val(inputtext3)
+   fcrossabs = Val(inputtext5)
+   thermalconduct = Val(inputtext7)
+   densityf = Val(inputtext9)
+   Af = Val(inputtext11)
+   namefuel = inputtext13
+   image4.Picture = GroupPush3D16.PictureUp
+
+End Sub
+
+Sub MnuDesignYourOwnMod_Click ()
+   INPUTTEXT1 = "DESIGN YOUR OWN MODERATOR"
+   INPUTTEXT2 = "Diffusion Length Squared"
+   inputtext3 = diffus & "  cm^-2"
+   InputText4 = "Fermi Age"
+   inputtext5 = fermi & "  cm^-2"
+   InputText6 = "Thermal Absorption Cross Section"
+   inputtext7 = mcrossabs & "  barns"
+   InputText8 = "Density"
+   inputtext9 = densitym & "  g/cc"
+   InputText10 = "Mass Number"
+   inputtext11 = Am
+   InputText12 = "Moderator Name"
+   inputtext13 = namemod
+   FrmInput.Show 1
+   diffus = Val(inputtext3)
+   fermi = Val(inputtext5)
+   mcrossabs = Val(inputtext7)
+   densitym = Val(inputtext9)
+   Am = Val(inputtext11)
+   namemod = inputtext13
+     image3.Picture = GroupPush3D15.PictureUp
+     image12.Picture = GroupPush3D15.PictureUp
+
+End Sub
+
+Sub MnuFileOpen_Click ()
+
+ On Error GoTo ErrHandler
+ CMDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Batch Files (*.bat)|*.bat"
+ CMDialog1.FilterIndex = 2
+ CMDialog1.Action = 1
+ 
+ myfile = CMDialog1.Filename
+
+  Open myfile For Binary As #1
+  For i = 1 To 13
+   Get #1, , save(i)
+  Next i
+
+  Close #1
+
+  
+ If namegeo = "Rectangular " Then
+  LX = Val(save(11))
+  LY = Val(save(12))
+  LZ = Val(save(13))
+  Volume = LX * LY * LZ / (1000000)
+  Buckling = ((pi / LX) ^ 2) + ((pi / LY) ^ 2) + ((pi / LZ) ^ 2)
+ End If
+  
+  If namegeo = "Cylindrical " Then
+   cr = Val(save(11))
+   cheight = Val(save(12))
+    Volume = (pi * (cr * cr) * cheight) / (1000000)
+    tubelength = cr
+   Buckling = ((2.405 / cr) ^ 2 + (pi / cheight) ^ 2)
+  End If
+
+   If namegeo = "Spherical   " Then
+   r = Val(save(11))
+   Volume = (1.33 * pi * r * r * r) / (1000000)
+   tubelength = r
+   Buckling = (pi / r) ^ 2
+   End If
+'End If
+ 'If (lx > ly) And (lx > lz) Then
+ 'tubelength = lx
+ 'End If
+ ' If (ly > lx) And (ly > lz) Then
+  'tubelength = ly
+  '  End If
+   'If (lz > lx) And (lz > ly) Then
+  ' tubelength = lz
+ If namefuel = "U-233       " Then
+   MnuU233_click
+End If
+ If namefuel = "U-235       " Then
+ MnuU235_click
+End If
+  If namefuel = "Pu-239      " Then
+  MnuPlutonium239_click
+  End If
+  If namefuel = "Pu-241      " Then
+   MnuPlutonium241_click
+  End If
+  If namefuel = "Am-242      " Then
+   MnuAmericium242_click
+  End If
+  If namefuel = "Cm-24       " Then
+   MnuCurium245_click
+  End If
+  If namemod = "H2O         " Then
+   MnuWater_click
+   End If
+  If namemod = "D2O         " Then
+   MnuHeavyWater_CLICK
+   End If
+   If namemod = "Be          " Then
+  MnuBerylium_Click
+  End If
+  If namemod = "C-12        " Then
+  MnuCarbon12_click
+  End If
+  If namemod = "C-13        " Then
+    MnuCarbon13_CLICK
+  End If
+  If namecool1 = "H2O         " Then
+   MnuWater_click
+End If
+  If namecool1 = "H2          " Then
+   MnuHydrogen_click
+End If
+If namecool1 = "He          " Then
+ MnuHelium_click
+ End If
+ If namecool1 = "SODIUM      " Then
+ MnuSodium_click
+ End If
+ Calculation_Phase
+End Sub
+
+Sub MnuFileSave_Click ()
+ save(1) = namefuel
+ save(2) = namemod
+ save(3) = namecool1
+ save(4) = namecool2
+ save(5) = namegeo
+ save(6) = Str(maxtemp)
+ save(7) = Str(mintemp)
+ save(8) = Str(tubedia)
+ save(9) = Str(porosity)
+ save(10) = Str(flowrate)
+ If namegeo = "Rectangular " Then
+ save(11) = Str(LX)
+ save(12) = Str(LY)
+ save(13) = Str(LZ)
+ End If
+ If namegeo = "Cylindrical " Then
+ save(11) = Str(cr)
+ save(12) = Str(cheight)
+ save(13) = "            "
+ End If
+ If namegeo = "Spherical   " Then
+ save(11) = Str(r)
+ save(12) = "            "
+ save(13) = "            "
+ End If
+
+ On Error GoTo ErrHandler1
+ CMDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Batch Files (*.bat)|*.bat"
+ CMDialog1.FilterIndex = 2
+ CMDialog1.Action = 2
+ myfile = CMDialog1.Filename
+ 
+ Open myfile For Binary As #1
+ For i = 1 To 13
+  Put #1, , save(i)
+ Next i
+
+  Close #1
+ErrHandler1:
+Exit Sub
+End Sub
+
+Sub MnuHeavyWater_CLICK ()
+     namemod = "D2O"
+     diffus = 10000
+     fermi = 121
+     densitym = 1.1
+     mcrossabs = .002
+     Am = 20
+
+End Sub
+
+Sub MnuHelium_click ()
+ image13.Visible = True
+ image16.Visible = True
+namecool1 = "Helium"
+namecool2 = "H2O"
+helium
+
+
+Sub MnuHydrogen_click ()
+   image13.Visible = False
+    image16.Visible = False
+   namecool1 = "Hydrogen"
+   namecool2 = "Hydrogen"
+   hydrogen
+
+End Sub
+
+
+
+Sub MnuPlutonium239_click ()
+     namefuel = "Pu-239"
+     crossfiss = 760
+     crosscatf = 11
+     fcrossabs = 1030
+     densityf = 19
+     Af = 239
+     thermalconduct = 14
+
+End Sub
+
+Sub MnuPlutonium241_click ()
+     namefuel = "Pu-241"
+     crossfiss = 988
+     crosscatf = 10
+     fcrossabs = 1384
+     densityf = 19
+     Af = 241
+     thermalconduct = 14
+
+End Sub
+
+Sub MnuPrimaryCoolant_Click ()
+ Calculation_Phase
+   outputtext1 = "SUMMARY OF PRIMARY COOLANT RESULTS"
+   OUTPUTTEXT2 = "Reactor Porosity or Void Fraction"
+   OUTPUTTEXT3 = Format(porosity, "0.00E+00")
+   OUTPUTTEXT4 = "Coolant Tube Diameter"
+   OUTPUTTEXT5 = Format(tubedia, "0.00E+00") & "  cm"
+   OUTPUTTEXT6 = "Number Of Coolant Channels"
+   OUTPUTTEXT7 = Format(numbertubes, "0.00E+00")
+   
+   OUTPUTTEXT8 = "Primary Coolant Pressure"
+   OUTPUTTEXT9 = Format(Pri_Pressure, "0.00E+00") & "  atmos"
+   
+   OUTPUTTEXT10 = "Primary Coolant Flowrate"
+   OUTPUTTEXT11 = Format(flowrate, "0.00E+00") & "  kg/s"
+   OUTPUTTEXT12 = "Primary Coolant Velocity"
+   OUTPUTTEXT13 = Format(velocity, "0.00E+00") & "  m/s"
+   OUTPUTTEXT14 = "Reactor Pressure Drop"
+   OUTPUTTEXT15 = Format(Rx_Pressure_Drop, "0.00E+00") & "  atmos"
+   OUTPUTTEXT16 = "Reactor Pump Power"
+   OUTPUTTEXT17 = Format(Pump_Power, "0.00E+00") & "  MWe"
+   
+   OUTPUTTEXT18 = "Coolant Mass within Reactor"
+   OUTPUTTEXT19 = Format(massc, "0.00E+00") & "  Mg " & namecool1
+   OUTPUTTEXT20 = "Max Primary Coolant Temperature"
+   OUTPUTTEXT21 = Format(maxtemp, "0.00E+00") & "  degree K"
+   
+   OUTPUTTEXT22 = "Differential Coolant Temperature"
+   OUTPUTTEXT23 = Format(DeltaT, "0.00E+00") & "  degree K"
+   OUTPUTTEXT24 = ""
+   OUTPUTTEXT25 = ""
+
+   frmout.Show 1
+    
+End Sub
+
+Sub MnuPrint_Click ()
+
+ On Error GoTo ErrHandler2
+ CMDialog1.Filter = "All Files (*.*)|*.*|Text Files (*.txt)|*.txt|Batch Files (*.bat)|*.bat"
+ CMDialog1.FilterIndex = 2
+ CMDialog1.Action = 5
+
+
+
+
+Sub MnuReactorResults_Click ()
+
+ Calculation_Phase
+
+   outputtext1 = "SUMMARY OF NUCLEAR REACTOR DESIGN RESULTS" & Chr(13) & Chr(10) & "hhhhhh"
+   
+   OUTPUTTEXT2 = "Volume of Reactor"
+   OUTPUTTEXT3 = Format(Volume, "0.00E+00") & "  m^3 "
+   OUTPUTTEXT4 = "Reactor Geometric Buckling"
+   OUTPUTTEXT5 = Format(Buckling, "0.00E+00") & "  cm^-2"
+                 
+   OUTPUTTEXT6 = "Moderator-to-Fuel Ratio"
+   OUTPUTTEXT7 = Format(ratio, "0.00E+00") & "  "
+   OUTPUTTEXT8 = "Fuel Number Density"
+   OUTPUTTEXT9 = Format(nf, "0.00E+00") & "  atoms/cc"
+   
+   OUTPUTTEXT10 = "Moderator Mass"
+   OUTPUTTEXT11 = Format(massm, "0.00E+00") & "  MG " & namemod
+
+   OUTPUTTEXT12 = "Critical Mass"
+   OUTPUTTEXT13 = Format(critmass, "0.00E+00") & "  kg " & namefuel
+   OUTPUTTEXT14 = "Annual Fuel Burnup"
+   OUTPUTTEXT15 = Format(burnup, "0.00E+00") & "  Mg/yr " & namefuel
+   
+   OUTPUTTEXT16 = "Specific Power"
+   OUTPUTTEXT17 = Format(specificpower, "0.00E+00") & " kw/gram " & namefuel
+  
+   OUTPUTTEXT18 = "Avg. Heat Flux"
+   OUTPUTTEXT19 = Format(heatflux, "0.00E+00") & "  watts/cm^2"
+   
+   OUTPUTTEXT20 = "Maximum Fuel Temperature"
+   OUTPUTTEXT21 = Format(FuelTemp, "0.00E+00") & "  degree K"
+ 
+   OUTPUTTEXT22 = "Avg. Thermal Neutron Flux"
+   OUTPUTTEXT23 = Format(N_Flux, "0.00E+00") & " /sec-cm^2"
+   
+   OUTPUTTEXT24 = "Thermal Power Produced"
+   OUTPUTTEXT25 = Format(Powerth, "0.00E+00") & "  MWth "
+
+frmout.Show 1
+
+End Sub
+
+Sub MnuRectangular_click ()
+   INPUTTEXT1 = "INPUT"
+   INPUTTEXT2 = "Set Reacor Length"
+   inputtext3 = LX & "  cm"
+   InputText4 = "Set Reactor Width"
+   inputtext5 = LY & "  cm"
+   InputText6 = "Set Reactor Height"
+   inputtext7 = LZ & "  cm"
+
+
+   FrmInput.Show 1
+   LX = Val(inputtext3)
+   LY = Val(inputtext5)
+   LZ = Val(inputtext7)
+   Volume = (Val(inputtext3) * Val(inputtext5) * Val(inputtext7) / 1000000)
+   namegeo = "Rectangular "
+   tubelength = Val(inputtext3)
+   Buckling = ((pi / Val(inputtext3)) ^ 2 + (pi / Val(inputtext5)) ^ 2 + (pi / Val(inputtext7)) ^ 2)
+  image2.Picture = GroupPush3D19.PictureUp
+  
+End Sub
+
+Sub MnuSecCoolant_Click ()
+ Calculation_Phase
+   outputtext1 = "SUMMARY OF SECONDARY COOLANT RESULTS"
+   OUTPUTTEXT2 = "Steam Temerature "
+   OUTPUTTEXT3 = Format(Sec_Temperature(4), "0.00E+0") & "  degree K"
+   OUTPUTTEXT4 = "Steam generator Pressure(4) "
+   OUTPUTTEXT5 = Format(Sec_Pressure(4), "0.00E+0") & "  atmos"
+
+   OUTPUTTEXT6 = "Turbine Efficiency"
+   OUTPUTTEXT7 = Format(80, "0.00E+0") & "  %"
+   OUTPUTTEXT8 = "Secondary Efficiency "
+   OUTPUTTEXT9 = Format(Effic, "0.00E+0") & "  %"
+
+   OUTPUTTEXT10 = "Condensate Pump Power"
+   OUTPUTTEXT11 = Format(Cond_Pump_Power, "0.00E+0") & "  MWe"
+   OUTPUTTEXT12 = "Secondary Coolant Flowrate"
+   OUTPUTTEXT13 = Format(Sec_flowrate, "0.00E+0") & "  kg/s " & namecool2
+
+   OUTPUTTEXT14 = "Electrical Power Generation"
+   OUTPUTTEXT15 = Format(Turbine_Power, "0.00E+0") & "  MWe"
+
+   
+   frmout.Show 1
+
+End Sub
+
+Sub MnuSodium_click ()
+ image13.Visible = True
+ image16.Visible = True
+
+  namecool1 = "Sodium"
+  sodium
+  image5.Picture = GroupPush3D4.PictureUp
+  image6.Picture = GroupPush3D13.PictureUp
+End Sub
+
+Sub MnuSpherical_click ()
+   INPUTTEXT1 = "INPUT Spherical Dimensions"
+   INPUTTEXT2 = "Set Reacor Radius"
+   inputtext3 = r & "  cm"
+
+
+   FrmInput.Show 1
+   r = Val(inputtext3)
+   Volume = (4 / 3) * pi * ((Val(inputtext3)) ^ 3) / 1000000
+   namegeo = "Spherical   "
+  Buckling = (pi / Val(inputtext3)) ^ 2
+    image2.Picture = GroupPush3D17.PictureUp
+      image1.Visible = True
+      image17.Visible = True
+      image18.Visible = False
+       image19.Visible = False
+
+End Sub
+
+Sub MnuU233_click ()
+     namefuel = "U-233"
+     crossfiss = 514
+     crosscatf = 14
+     fcrossabs = 569
+     densityf = 19
+     Af = 233
+     thermalconduct = 14
+      image4.Picture = GroupPush3D7.PictureUp
+End Sub
+
+Sub MnuU235_click ()
+     namefuel = "U-235"
+     crossfiss = 582
+     crosscatf = 15
+     fcrossabs = 679
+     densityf = 19
+     Af = 235
+     thermalconduct = 14
+
+End Sub
+
+Sub MnuVariables_Click ()
+   INPUTTEXT1 = "INPUT Variables"
+   INPUTTEXT2 = "Maximum Coolant Temperature "
+   inputtext3 = maxtemp & "  degree K"
+   InputText4 = "Minimum Coolant Temperature"
+   inputtext5 = mintemp & "  degree K"
+   InputText6 = "Coolant Tube Diameter"
+   inputtext7 = tubedia & "  cm"
+   InputText8 = "Reactor Porosity"
+   inputtext9 = porosity
+   InputText10 = "Coolant Flowrate"
+   inputtext11 = flowrate & "  kg/s"
+   InputText12 = "   "
+   inputtext13 = "  "
+
+
+End Sub
+
+Sub MnuWater_click ()
+     namemod = "H2O"
+     diffus = 7.617
+     fermi = 31.36
+     densitym = 1
+     mcrossabs = .66
+     Am = 18
+
+End Sub
+
+
+       

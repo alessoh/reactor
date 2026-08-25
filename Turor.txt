@@ -1,0 +1,181 @@
+
+THE WORLD OF REACTOR DESIGN:
+A TUTORIAL
+
+
+1.0 Overview
+
+Nuclear fission is the splitting of the nucleus into two or more fission fragments with one to three neutrons and a great deal of energy (about 200 Million electron-volts).  Fission can occur with high probability for fissile materials such as Uranium-235 or Plutonium-239.  Those neutrons emitted immediately from fission are called prompt neutrons.  While those neutrons released 0.2 to 55 seconds after fissioning has occurred are called delayed neutrons.  When the number of neutrons being produced from all sources is exactly equal to the number of neutrons being eliminated by all mechanisms then rate of change in the neutron population is zero.  At that time, the neutron population is balanced and the reactor is called CRITICAL.  If the neutron population is growing the reactor is called SUPERCRITICAL and if the population is declining the reactor is called SUBCRITICAL.
+
+The main goal of reactor physics is to compute the free neutron population throughout the reactor.  With this, the nuclear reactions that  occur that effect reactor criticality can be computed.  The high energy (fast) neutron population can cause high energy fission reactions (fast fission) to occur, though with a relatively low probability.  Fast neutrons can also leak out of the reactor and be lost from further reaction.  Or they can be absorbed by materials that do not produced a fission.
+
+Those fast neutrons that do not cause fast fission, get absorbed, or leak out and become lost, will be slowed down as they lose energy through collisions with the atoms of the surrounding materials.  Low energy (thermal) neutrons have a much higher probability of causing a fission in fuel than fast neutron.  Therefore, once the neutrons have slowed down adequately (again without being absorbed or lost through leakage) they can control the fissioning rate in the reactor and the thermal power production.
+
+Controlling the reactor’s criticality and subsequent power generation, depends on controlling reaction rates through reactivity changes.  Reactivity is defined as a measure of criticality fluctuation.  Reactivity in a reactor can vary due to the coolant temperature, coolant pressure, control rod (deliberately stationed neutron absorbers) position, burnable poisons (deliberately placed materials that absorb neutrons in special regions), fuel depletion, and fission product poisoning (waste materials that absorb neutrons).
+
+The choice of fuel will determine the probability of fission.  The choice of moderator will determine the probability that neutrons will slowdown without being absorbed or lost to leakage.  The choice of geometry and dimensions will play a large role in determining the rate at which neutrons are lost to leakage.  And the choice of coolant will also play a role in neutron absorption in the reactor.  Coolant will of course determine the rate of heat transfer from the reactor to the power conversion system as well as the overall system efficiency.
+
+The design of a thermal nuclear reactor and aspects of its power conversion system is a complex integration of physics and engineering.  It requires aspects of neutron physics, thermal-hydraulics, stability and control, materials, structures, radiation shielding and more.  The choice of a reactor concept is based on extensive parametric studies that vary the selection of such fundamental variables as fuel, moderator, and stability, and power conversion systems.  In parametric evaluations, an attempt is made to estimate the gross effects that varying fundamental variables have in meeting the design objectives.
+
+The first step in “DESIGN YOUR OWN REACTOR” is the selection of fissile fuel.  Only three nuclides, Uranium-233, Uranium-235 and Plutonium-239 are; (1) stable for storage, (2) “available”, (3) capable of fissioning by neutrons of all energies, from thermal (0.025 electron volts or less) to millions of electron volts.  Of these, only U-235 occurs in nature.  The others are produced artificially by neutron capture followed by radioactive decay.  Several other species capable of undergoing fission by neutrons of all energies, but most are highly radioactive and decay rapidly.  However, Plutonium-241, Americium-242, and Curium-245 are included as selection options.  While their stability is limited and they will be unavailable for decades to come, they are included because of the insights they provide when comparing parametric studies.  Similarly, an “Add Your Own Fuel “option is included which will allow you to input values for special materials for which you have your own data.
+
+In order to minimized the required critical mass of fuel, it is desirable to have most of the fissions occur as a result of absorption of thermal neutrons.  This is achieved by distributing the fuel within a moderating material.  The function of the moderating material is to slow down the high-energy neutrons liberated in the fission reaction, mainly as a result of elastic scattering reactions.  The best moderators are materials consisting of elements of low mass number with little tendency to capture neutrons; examples are ordinary water, heavy water (deuterium oxide), beryllium, and carbon.  The relative amount and nature of the fuel and moderator determine the energies of most of the neutrons causing fission.  The relative amounts are often expressed as the Moderator-to-Fuel ratio (Nm/f) which is the ratio of an atom of moderator to an atom of fuel.
+
+The critical Buckling B^2 for thermal unreflected nuclear reactors can be used to evaluate the critical size for a prescribed shape.
+ 
+For a given material composition, the critical volume (and mass) will be minimal for a sphere.  This is because the sphere has the minimum area-to-volume ratio and neutron production takes place throughout the volume but neutron leakage out of the reactor occurs only at the surface.
+
+Once reactor fuel and moderator have been selected and the geometry designated, it is possible to calculate the critical mass of reactor fuel from its geometric “Buckling” and subsequent critical moderator-to-fuel ratio.  In “DESIGN YOUR OWN NUCLEAR REACTOR”, this calculation is performed from Fermi age, thermal group, and homogeneous reactor approximations.  As a consequence, the results are only rough estimates and not as accurate as studies that use Monte Carlo simulations to obtain critical mass estimates for heterogeneous designs.  Once the critical mass of fuel is found, estimates of power generation, power density, heat flux, specific power, and thermal neutron flux.
+
+The heat generated in the reactor core due to fission is removed by coolant such as, water, liquid metals, gases, and certain organic compounds.  To convert this heat to electrical energy, it must be either; (1) transferred from the coolant to a working fluid to produce steam (or by a hot gas) in a CLOSED LOOP power conversion system, or (2) directly run a turbine in an OPEN LOOP power conversion system.  The higher the temperature of the steam or working fluid, the greater the efficiency for conversion into useful power.  Hence, the desire to operate at the highest possible temperature.  Heat must be removed from the core at a rate that permits the coolant to attain a high temperature without causing thermal stresses and fuel center-line-temperatures which will damage the reactor fuel or structure.
+
+“DESIGN YOUR OWN NUCLEAR REACTOR” has been composed to advantageously combine various criticality/thermal-hydraulic/control/ and material limitations into a self-consistent design, while avoiding violating physics and engineering principles.  As you gain experience by running many of your own designs you will begin to appreciate various trade-offs that must be made.  You will then reach a better understanding of the limitations of this program.
+ 
+
+2.0  Nuclear Physics
+
+The main goal of reactor physics is to compute, for any time “t”, the characteristics of the free-neutron population throughout the reactor.  With this, rates at which nuclear reactions occur can be predicted and thus how much nuclear power will be generated.  Nuclear fission is the splitting of the nucleus into two fission fragments:  one to three free neutron, and numerous Gamma (G) rays.  This can occur with high probability for U-233, U-235, Pu-239, or Pu-24l.  The fraction of the neutrons emitted between the energies E and E + dE is symbolized by C (E), which is the fission spectrum.  Not all the neutrons are emitted immediately - in an average fission the fraction b (0.65% for U-235) are emitted between 0.2 seconds and 55 seconds later.
+
+Reactor control of pressure water reactors consists of controlling the reactivity changes in the core.  Reactivity is defined as the degree of criticality of a reactor (i.e., r = 1 - 1/Keff).  The reactivity insertion mechanisms are as follows:
+
+1)	Reactor Coolant Temperature
+2)	Reactor Pressure
+3)	Control Rod Movement
+4)	Fuel Depletion. (Age Effect Burnable Poison Depletion)
+5)	Fission Product Poison Concentration.
+
+rnet = rtemp + rpress + rrod + rage + rfpp
+
+The change in the average temperature of the reactor coolant results in a change in moderator density.  This changes the rate at which neutrons slow down, and thus the neutron population.  Temperature changes also change the Doppler Broadening Effect - the width of the absorption cross sections in the resonance region.  Thus, it changes the neutron population through the amount of absorption of neutrons.  The composite of these two effects is (aT), the temperature coefficient, where if a reactor has a positive aT, an increase in temperature would cause a positive amount of reactivity to be inserted into the core.  Thus, there would be a positive feedback effect.  All reactors are required to have negative temperature coefficients in order to have a negative feedback effect and thus be self-regulating.
+
+The pressure coefficient of reactivity also changes reactivity since an increase in pressure increases moderator density.  Changes in pressure are usually neglected since are positioned in the core to Control rods are neutron absorbers that effect reactivity.  By positioning more absorbent material near neutrons, negative reactivity can be added.
+
+Differential rod worth is the change in reactivity due to the change in height of a control rod relative to the flux density.
+
+Fuel and burnable poisons are depleted with time, and thus they affect reactivity in the core.
+
+Some fission products are very strong absorbers of thermal neutrons (e.g., xenon), and so influence neutron population and thus reactivity.
+
+At each period in the core lifetime, the core must be able to be critical, shutdown, or controlled over the extremes of possible core conditions with a certain margin for safety.
+
+The purpose of the control rods is to start up the reactor, control average temperature of the coolant, shut down the reactor, and compensate for changes in core properties in order to maintain criticality.  The reactor operator controls Keff by rod motion.  Keff is controllable by human actions only because of delayed neutrons.  Prompt neutrons appear 10-4 seconds after a fission, while delayed neutrons appear 0.2 to 55 seconds after fission.
+
+Reactor power is given by P = Po   where 1 is equal to mean generation time.  If neutrons were all prompt, power could change by a factor of 8,000 in 0.33 seconds for a change of Keff of 0.003.
+
+3.0 ENGINEERING
+
+Designing a nuclear reactor system is a complex project.  A nuclear plant includes a number of components similar to non-nuclear facilities such as heat exchangers, turbo-generators, engines, reduction gears, et cetera.  The design of a nuclear reactor system follows several phases.  First, objectives are defined and criteria are established.  Second, a preliminary design is prepared.  Third, the principal features of the reactor and its associated plant are defined in enough detail to permit cost estimation.
+
+Design objectives might include desired power capacity of the plant.  The nature of fuel, moderator, coolant, and general configuration must be planned.  For a pressurized water reactor, the fuel must be enriched and fuel element geometries may be enriched and fuel element geometries may be cylindrical rods or flat plates.  The optimum degree of enrichment depends upon:  1) size of core, 2) thermal power required, 3) moderator to fuel ration, 4) diameter of fuel elements, and 5) fuel-cycle costs.  
+	
+To reduce irradiation damage the choice of fuel can be a form of UO2, clad in stainless steel or zirconium alloy.  UO2 has the disadvantage of a relatively low heat conduction.  The diameter of the rod affects heat transfer, power density, fabrication costs, and resonance escape probability, and thus the conversion of U-238 to Pu-239.  Another factor in choice of rod diameter is the “cladding”.  Cladding depends upon chemical reactivity, neutron capture cross section, and thickness to provide support and cost.  Fission product gas pressure and corrosion will increase with time and also affect the “clad” thickness.
+
+The final core development is a compromise between thermal and nuclear parameters.  In planning operating conditions, the maximum heat flux is calculated.  In order to allow for local deviations from average behavior, “Hot Channel” factors reduce maximum flux.
+
+The fuel enrichment must yield an effective multiplication factor in a “cold, clean” condition to account for a decrease in reactivity upon heating of the core to the operating condition, the decrease during core life due to “burn-up” of fuel, the Doppler Effect, the accumulation of fission product poisons, the control rod absorption, and the burnable poisons (those which are added to extend core life).
+
+The Heat-Removal Rate from the fuel to the coolant is a critical problem and usually limits the core design.  Certain limitations are imposed by such factors as temperatures, thermal stresses, corrosion, and erosion.  There are definite limits set upon the temperature of the interior of fuel elements, “cladding” temperature, and coolant temperature.  Limitations on flow rate of coolant and drop in pressure through the reactor have an important effect upon heat removal.
+
+A thermal designer must ensure that all channels are safe with respect to thermal limits.  This can be accomplished by making sure that the most limiting channel is safe.  The “Hot Channel” is assumed to be located in the hottest region of the core and to have the most adverse (within tolerances) dimensions to thermal performance.  Thermal limits are set as: 1) no flow oscillations, 2) no instabilities, 3) no departure from nucleate boiling, and 4) no temperature greater than maximum peak centerline temperature allowable (for steady-state limit or for transient limit).
+
+For a given channel at steady-state, all energy generated in the centerline of the rod must enter the channel.  Thus, the enthalpy and temperature of the coolant increases as it flows up the channel.  DNB is the departure from nucleate boiling caused by vapor coating of the area, which therefore does not allow heat flow and thus causes very rapid increase in surface temperature.
+
+By using a simple energy balance on the fuel rod and employing the general energy equation, the relationship between pertinent parameters is obtained.  This is used to evaluate the combination of parameters as Tbulk, Tcenterline, Twall, m (mass flow rate), h (enthalpy), and X (quality of Steam).  Then these parameters are evaluated to see if their combination of values will violate a thermal limit.
+
+A shielding system around the reactor is necessary to reduce radiation to tolerable levels.  The shield must be capable of absorbing neutrons and Gamma rays.  It is made of two components:  a thermal shield, and a biological shield.
+
+4.0  REACTOR PROTECTION 
+
+1)  Automatic Protection:  Many transients occurring in the reactor are too rapid for human diagnosis and reaction.  Therefore, many automatic features have been incorporated into the operating circuitry.  A reactor “scram”, a rapid ( 1 seconds) insertion of control rods, and a “cut back” - a fast driving in the control rods, are safety features that may be initiated manually or automatically when certain limits are reaches.  For reactivite  excursions due to uncontrolled rod withdrawal, too rapid withdrawal of rods, cold water accident, or loss of coolant, protection is provided by a high “Start-Up” Rate (SUR) “scram” or by an overpower “scram.”
+
+In case of loss of control due to control system failure, operator error, or a stuck rod, protection is provided by a high-temperature outlet “scram” or by an overpower “scram.”
+
+For a power to flow mismatch due to either instrument error or control system malfunction, protection is provided by high-temperature outlet “scram.”
+
+In case of a coolant failure due to a loss of flow, a loss of coolant, or a reactor vessel failure, protection is provided by loss of flow “scram,” a high outlet “scram” or a low pressure “scram.”
+
+2)  Other Forms of Protection:  Interlocks are designed into reactor instrumentation in order to prevent operators from committing serious errors.  For example, the cold water interlocks prevent starting flow from a “cold” loop into the reactor.  This would cause colder water to add a great deal of reactivity into the reactor due to the negative temperature coefficient.
+
+Personnel must be highly trained to operate a reactor safely during “Shut-Down,” during operations, or in emergency operations.  Procedures must be explicitly defined in manuals and rigidly adhered to by personnel.
+
+5.0  RADIOACTIVE HAZARD
+
+Nuclear plants face the problem of being restricted due to the possibility of radiological contamination.
+
+The biological shields around the reactor in the form of the primary and secondary shields provide sufficient radioactive protection to allow workers access to all portions of the plant (except the reactor building during operations) for specified amounts of time.  The radiation leakage at normal operating power is less than the normal radiation dose present in the atmosphere.  Direct radiation is therefore not a hazard.
+
+There are circumstances when primary coolant must be discharged from the primary loop, but these do not require large amounts of discharge and they may be contained in the tanks.
+
+The radioactivity in the primary coolant comes from three sources.  First, Gamma rays from the fuel elements activate the primary coolant (water) yielding oxygen and nitrogen isotopes that decay with short half-lives.  Second, erosion of metallic elements that are in contact with the primary coolant provides a mobile source of materials that pass through the reactor and thus become activated.  The most notable of these are Cobalt, Iron, and Magnesium.  The Cobalt has a long half-life and is a source of the long term radioactive hazard that primary coolant environment.  The third source is fission products that recoil from fission and travel to the coolant.  The “cladding” also has impurities that can be activated and travel into the coolant.
+
+Radioactivity from the reactor directly is in the form of Beta, Gamma, and neutron radiation.  Shielding of lead and stainless steel are employed to stop the Beta and Gamma radiation while the moderator (water) acts as a fast neutron remover and prevents any dangerous radiation from leaving the Reactor Compartment.
+ 
+
+Power Transients and Their Effect
+
+6.0  THE PROPULSION PLANT OF NUCLEAR SHIPS (an example)
+
+As an example of operations consider a nuclear powered ship’s reactor. With the given initial conditions, the problem of an ordinary power transient will be followed throughout the Propulsion Plant.  Initial conditions are:
+
+1)	Reactor critical, operating at power.
+2)	Reactor self-sustaining.
+3)	Ship at “All Stop.”
+4)	Reactor Power = Low.
+5)	TAV (average coolant temperature) = Normal.
+6)	DT (Thot - Tcold) = Small.
+7)	m (mass flow rate of primary coolant) - slow.
+8)	Pressurizer level = Normal.
+9)	Steam generator pressure = Normal.
+10)	Turbine generators supplying electrical loads.
+11)	Main engine condensers at vacuum.
+12)	Constant TAV system (assumed).
+
+The need for moving the ship imposes a demand for power.  The initial pressure in the steam generators is about 600 psia.  When the throttle is opened, steam flows through the main engineers to the main condensers which are at an initial vacuum.  The large pressure differential starts a mass flow rate of steam from the steam generators to the main condensers.
+
+The steam generator is basically a tube and shell heat exchanger which maintains steam at saturation temperature and pressure.  Thus, when the mass flow rate of steam to the main condensers increases, it reduces the partial pressure of steam inside the steam generator and allows water to “flash” to steam, and the temperature of the steam generator water is reduced.  The partial pressure of steam drop, a control device, signals the steam generator water level control system to increase make-up feed water to keep an approximately constant level of water in the steam generator.  This make-up feed water is colder than the water already present, and thus it adds to a reduction of the temperature of the steam generator.
+
+As the average temperature of this water declines, the temperature gradient between the primary coolant and the steam generator “secondary” water increases, thereby promoting between heat transfer.  The lower average steam generator temperature draws more heat from the primary coolant and reduces Tcold (the exit temperature of the primary coolant from the team generator).  This is obvious from the following equations:
+
+(1)  Qp (heat rate primary) =
+      QSG (heat rate secondary)
+
+Tsat is the first to drop.  Thus, (Tav - Tsat) increases, resulting, in Tcold decreasing initially to maintain balance.
+
+TCold has been reduced several degrees.  It returns to the reactor where through the negative temperature coefficient it increases reactor reactivity.  A positive “Start-Up” Rate for power will now increase reactor power exponentially.  However, the rising power will raise the temperature of the coolant, and through the negative temperature coefficient, it will begin to cause negative reactivity.  This will stop the power rise and eventually, after several oscillations, power will reach a new steady-state value which will be higher than its initial value (See Figure).
+
+If power doubled from its initial level, it follows (Thot - Tcold) must double (in this case, from A°F to 2A°F).  TAV would initially decrease as Tcold decreased, but as reactor power increases, thereby also increasing Thot, TAV will return to its initial level.
+
+Primary pressure and pressurizer level will vary during the transient, but the resultant levels depend greatly upon the physical contraction of the pressurizer piping and will thus vary from system to system.
+
+Meanwhile, steam from the steam generator is flowing to the main engines which in turn drive the ship through the normal propulsion train sequence.
+
+The used steam is converted to water in the main condenser following normal marine engineering practice, and is pumped back to the steam generator.
+
+7.0 CONCLUSION
+
+The design  of a  THERMAL NUCLEAR REACTOR  and aspects  of its power  conversion  system  is  a  complex  integration  of  physics  and engineering.     It    requires    knowledge   of    neutron    physics, thermal-hydraulics, materials,  structures, and  more.  The choice  of a reactor concept is  based on extensive parametric studies  that vary the selection of such fundamental  variables as fuel, moderator, geometrical configuration,  coolant, and  power  conversion  system.  In  parametric evaluations,  an attempt  is made  to  estimate the  gross effects  that varying  fundamental   characteristics  have   in  meeting   the  design objectives.    
+
+    "DESIGN  YOUR OWN  NUCLEAR  REACTOR"  is a  menu  driven program  with opportunity to input  certain parameters.  It allows the  user to select from  a   wide  variety   of  fundamental  materials,   geometries,  and configurations in order  to develope his own  nuclear reactor conceptual design.  Then,  important reactor variables  are calculated such  as the critical fuel  mass.  The results  are presented in both  summary table and graphical displays.  The program allows multiple iterations in order to accumulate cases  of individual reactor design for  comparison.  As a result, the  user can optimize  toward a specific  design characteristic and review the results.
+
+      This program will  prove beneficial both as an  educational device for college level  science and engineering  students and as  a prelimininary conceptual design tool for scientists and engineers.   
+
+
+
+
+
+Formulars for Buckling
+
+Geometry	Buckling		Min. Critical
+						Volume
+
+									
+Spherical		(pi/r)^2		(130/B)^3
+
+Cylinder		(2.405/R)^2 +	(161/B)^3
+
+Parallelepiped	(pi/x)^2 +	(148//B)^3
+			(pi/y)^2 +
+			(pi/z)^2
+
+where pi = 3.141526 for H = 1.847R
+ 

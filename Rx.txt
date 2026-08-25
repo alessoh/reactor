@@ -1,0 +1,446 @@
+
+                PREFACE
+
+
+       The design  of a  THERMAL NUCLEAR REACTOR  and aspects  of its power  conversion  system  is  a  complex  integration  of  physics  and engineering.     It    requires    knowledge   of    neutron    physics, thermal-hydraulics, materials,  structures, and  more.  The choice  of a reactor concept is  based on extensive parametric studies  that vary the selection of such fundamental  variables as fuel, moderator, geometrical configuration,  coolant, and  power  conversion  system.  In  parametric evaluations,  an attempt  is made  to  estimate the  gross effects  that varying  fundamental   characteristics  have   in  meeting   the  design objectives.    
+
+    "DESIGN  YOUR OWN  NUCLEAR  REACTOR"  is a  menu  driven program  with opportunity to input  certain parameters.  It allows the  user to select from  a   wide  variety   of  fundamental  materials,   geometries,  and configurations in order  to develope his own  nuclear reactor conceptual design.  Then,  important reactor variables  are calculated such  as the critical fuel  mass.  The results  are presented in both  summary table and graphical displays.  The program allows multiple iterations in order to accumulate cases  of individual reactor design for  comparison.  As a result, the  user can optimize  toward a specific  design characteristic and review the results.
+
+      This program will  prove beneficial both as an  educational device for college level  science and engineering  students and as  a prelimininary conceptual design tool for scientists and engineers.   
+
+
+
+ 
+
+
+ TABLE OF CONTENTS                                            Page
+
+ 1.0 Introduction                                                                3
+
+ 1.1 Background   
+ 1.2 Objective   
+ 1.3 Organization of Program
+
+ 2.0 Using the Documentation                                            7
+
+ 2.1 User's Manual   
+ 2.2 Help  
+ 2.3 Tutorials  Available From the Program    
+ 2.4 Data  in the Appendices
+ 2.5 Saving Selections
+
+ 3.0 Computer Hardware Compatibility                             9         
+
+ 3.1 Requirements for Running  Program  
+ 3.2 Color and Graphics Requirements  
+ 3.3 Printer Requirements  
+ 3.4 Making a Backup Copy of the Disk  
+
+ 4.0 Starting and Stopping the Program                          10
+
+ 4.1 Getting Starting   
+ 4.2 Running the Demonstration  
+ 4.3 How to Exit the Program
+
+ 5.0 DESIGN PHASE                                                     12
+
+ 5.1.1 Selecting the Reactor Materials  
+ 5.1.2 Selecting Reactor Fuel   
+ 5.1.3 Selecting Reactor Moderator
+5.1.4 Selecting Recator Coolant
+
+5.2 Selecting the Reactor Geometry  
+5.2.1 Rectangular
+5.2.2 Cylindrical
+5.2.3 Spherical
+
+
+5.3 Variables ( Input Parameters for System)  
+5.4 Design
+5.5 Tools
+5.5.1 Database 
+5.5.2 Maps
+
+6.0 OUTPUT PHASE                                                    17
+
+6.1 OUTPUT PHASE Menu   
+6.2 System Diagram   
+6.3 Reactor  Results   
+6.4 Primary Coolant Results  
+6.5 Secondary Coolant Results  
+6.6 System State Points
+
+7.0 Failure to Achieve Criticality                                   19     
+
+8.0 Advanced Level DESIGN PHASE                           20      
+
+8.1 Input Your Own  Fuel Data  
+8.2 Input Your Own Moderator Data
+
+Appendix A:  Data Tables                                             21
+Appendix B: Assumptions and  Limitations                  23
+Appendix C: Nuclear Reactor Examples                       24 
+
+    1.0 INTRODUCTION
+
+1.1 Background  
+
+      The  development of  nuclear reactors  had  its origin  in the  atomic program of World  War II, known as the Manhattan  Project.  The reactors were designed to produce plutonium which was extracted and then used for atomic weapons.  The development of  nuclear reactors for commercial use originated with the  partners of the Manhattan Project; the  U.S.  , the U.K., France, and Canada.
+
+      Canada was the first nation to  emphasize the civil aspects of nuclear reactors.   It  had been  the  site  of major  experimental  facilities, including the  first reactor  outside of the  United States.   After the war, the U.K.  recalled her scientists from Canada to  begin the British nuclear program, but left Canada  with heavy water production facilities and vast resources of natural Uranium.  Canada's early research reactor, the NRX, developed  in 1947, was the precursor to  the present day CANDU heavy-water reactor.
+
+      The French  also set  up a  nuclear research  program and  their first reactor went  critical in 1948.  By  1956, they had a  plutonium powered reactor that was air-cooled and graphite moderated.
+
+      The U.K. began  their program with a gas-cooled,  MAGNOX type reactor. They  did not  want  to use  light water  reactors  because they  lacked Uranium enrichment facilities.
+
+      Unlike its three partners, the U.S.  had at that time large quantities of  alternative energy  resources  in  its coal,  oil,  and natural  gas deposits and so  did not immediately move ahead  with commercial reactor development.  As a  result, many different reactor  types were explored. Eventually,  the demand  for a  compact  and reliable  reactor for  U.S. submarines led to the rapid development of the Pressurized Water Reactor (PWR).  The PWR  and the Boiling Water Reactor  (BWR) eventually, became the basis of the U.S. commercial reactor industry.
+
+      As a result  of this historic development, there are  today, six basic types of commercial  nuclear reactors; (1) PWR, (2) BWR,  (3) CANDU, (4) Gas-Cooled  (MAGNOX),  (5)  Advanced   Gas-Cooled  (AGR)  and  (6)  High Temperature Gas Reactor (HTGR).
+
+      Besides the commercial reactors and the plutonium production reactors, there are numerous different types of experimental and research reactors as well as space reactors.  Their designs include fast reactors, aqueous fuel reactors, molten-salt reactors and breeder reactors.   
+
+      The  design of  a THERMAL  NUCLEAR REACTOR  and aspects  of its  power conversion system is  a complex integration of  physics and engineering. It requires knowledge of neutron physics, thermal-hydraulics, materials, structures,  and more.   The choice  of a  reactor concept  is based  on extensive parametric studies that vary the selection of such fundamental variables as  fuel, moderator,  geometrical configuration,  coolant, and power  conversion system.   The objective  being to  optimize particular characteristics of the reactor in order  to meet the specifications of a special reactor design goal.   
+
+      For example, the  objective of the efficient  production of electrical power for commerical power stations,  has led to nuclear reactor designs quite different than those reactors that  are to be deployment in space. "DESIGN YOUR  OWN NUCLEAR REACTOR"  has been composed  to advantageously combine  the  multiple  factors  involved  in  designing  very  new  and different  reactors,  into  a self-consistant  design,  which  minimizes conflicts.  
+
+      1.2 Objective  
+
+      The objective  of "DESIGN YOUR  OWN NUCLEAR  REACTOR" is to  perform a preliminary  conceptual  design  and  evaluation of  a  THERMAL  NUCLEAR REACTOR.  This  program should prove  beneficial both as  an educational device  for college  level science  and  engineering students  and as  a prelimininary conceptual design tool for scientists and engineers.   
+
+     1.3 Organization of Program
+
+      "DESIGN  YOUR OWN  NUCLEAR  REACTOR"  is a  menu  driven program  that basically consists of two phases.  First, an DESIGN PHASE where the user can select  from various input possibilities  or input his own  data for various parameters for fuel, moderator, or coolant.  This is followed by the OUTPUT PHASE where the user  can review system diagrams with pop-out windows or lists  of calculated results of a  particular reactor design. In addition,  iterating through this  two phase process many  times will permit the user to accumulate a  variety of cases that can be contrasted and compared.
+
+      
+
+
+ 
+
+
+    2.0 USING THE DOCUMENTATION
+
+      2.1 User's Manual   
+
+      Sections 1.0 thru  8.0 of this User's Manual  provide instructions for the operation of the program "DESIGN YOUR OWN NUCLEAR REACTOR".  The Appendices provide useful for thermal nuclear reactor design.  
+
+      2.2 Help  
+
+      You may select Help from pull-down menu screens.  The Help screen will discuss the phases, data input, selection, and exit requirements.
+
+
+FILES   DESIGN REACTOR     OUTPUT    HELP  
+                                                                      Contents
+                                                                      About
+
+      2.3  Tutorials Available  
+
+      From the  submenu under  Help from  the main menu. 
+
+      From the DESIGN  PHASE screens, the user can call  up a brief tutorial on  certain aspects  of thermal  nuclear reactor  design.  Within  these tutorials, the basic  points involved in reactor  design are emphasized. Tutorials  are  available for  reactor  history,  materials and  design, equations and  assumptions,  and reactor examples.
+
+      2.4 Data in the Appendices
+
+      The  data  available   in  the  appendices  provides   the  user  with information about materials  used in reactor design  and, in particular, the data used within this program.
+
+      2.5 Saving Selections 
+
+      In the main menu select Exit you will have an oportunity to save your selections to a file you designate. Later you can retrieve this design.
+
+ 
+
+
+    3.0 COMPUTER HARDWARE COMPATIBILITY
+
+      3.1 Computer Requirements for Running the Program  
+
+      This program will run on an IBM PC or compatable under Windows3.1.
+
+      3.2 Color and Graphics Requirements   
+
+      This program requires  a color monitor and adaptor  for color display, otherwise it will display black and white. 
+
+      3.3 Printer Requirements   
+
+      This program will print the output shown on the monitor to any printer supported by Windows 3.1. 
+
+     3.4 Making a Backup Copy of the Disk  
+
+      It is  recommended that you do  not use your program  disk for running problems, but rather make a back-up copy and use that disk instead.
+
+  
+   
+
+
+    4.0 STARTING AND STOPPING THE PROGRAM
+
+      4.1 Getting Started 
+
+      After you have made a back-up copy  of the program disk, you can start "DESIGN YOUR OWN NUCLEAR REACTOR" by placing the back-up disk in drive A and from WINDOWS use 
+RUN "A:\REACTOR".
+
+      Click on the reactor icon to start thr program.  The Main menu  and main window will apprear.  The  pull-down menu offers  selection choices. In addition, command buttons as well as Click & Drag options exist.  These choices or menu selctions bring up another menu options. The Variables button or menu selection brings up a data  entry screen.  Help provides information on making selections and entering data.   The Reactor Results uses the DESIGN phase inputs and calculates and presents the results. Files/Quit ends the program. If you  immediately select Reactor Results  without entering data  or selecting fuel,  moderator, geometry  or coolant,  the program  will run  with the default reactor characteristics set.   
+
+      4.2 Running the Demonstration Example  
+
+      After starting the program  there  are default values  for  an 
+example reactor  design  to  run as  a demonstration.   The demonstration  program will  use the  default values  for a  reactor 1.0 meters cubed, with U-235 fuel, and  water as moderator and coolant.  The power conversion system will be closed loop.   
+
+      When you select Reactor Results from the Menu or click the Reactor, Primary, or Secondary Buttons from the toolbar,the computer  will then quickly  calculate the critical fuel  mass and other characteristic variables . The  next three  choices are  summary output  pages of results for:  the Reactor, the  Primary Coolant, the  Secondary Coolant.  The selections will be listed in the menu. Review the results by selecting the the output options. You can exit a results page by selecting the EXIT button. You can print the page subsequently, by going to the Files / Print Page menu selction.
+
+      4.3 How to Exit the Program
+
+     You can exit the program from pull-down menu screen by selecting Files / Quit. 
+
+ 
+
+    5.0 DESIGNING A REACTOR
+
+      During  the DESIGN REACTOR phase,  you  will have the following choices:
+
+
+FILES  DESIGN REACTOR  REACTOR RESULTS   HELP   
+       ...
+          Materials
+          Geometry
+          Variables
+          Design Summary
+          Tools
+
+
+      5.1 DESIGN REACTOR Materials  
+
+    If  you select Materials from the menu you will open submenus for fuel (as show below), moderator, or coolant options. Alternatively you could click & drag material choices from the materials toolbar and drop them over the appropriate reactor areas.
+
+FILES  DESIGN REACTOR  REACTOR RESULTS   HELP   
+       ...
+          Materials.........Fuel................U-233
+          Geometry         Moderator    U-235
+          Variables          Coolant          Pu-239
+          Design Summary                    Pu-241
+          Tools                                       Cm-245
+                                                          Am-242
+
+      5.1.1 Selecting Reactor Fuel   
+
+      During the DESIGN  PHASE   select "Fuel" the Fuel selection menu  will appear.  You  can select  any of the  six available isotopes    presented    (Uranium-235,    Uranium-233,    Plutonium-239, Plutonium-241,  Americium-242, Curium-245)  or you  may define  your own fuel.  You  may select any of  the six isotopes offered  by pressing the associated number.   Notice that the  list of Current Selections  at the bottom of the page will reflect your  choice in fuel.  If you would like to input data for your own fuel and see section 8.1 for instructions.
+
+    NOTE: Atoms  with nuclei  containing the same  number of  protons, i.e., with  the same  atomic  number,  but with  different  mass numbers,  are essentially  identical   chemically,  although  they  can   have  widely different  nuclear properties.   Such  species, having  the same  atomic  number  but  different mass  numbers,  are  called isotopes.   The  fuel options are presented with the element name first (for example, Uranium)followed by the isotope number ( for example, 235 ). 
+
+      5.1.2 Selecting Reactor Moderator   
+     During the  DESIGN PHASE, if  you  select  Moderator, the Moderator selection  menu will appear.  You  can select any of  the five available materials presented (Water, Heavy Water, Beryllium, Carbon-12, and  Carbon-13) or  you may  choose  the sixth  option;"Define Your  Own Moderator".   You  may select  any  of  the  five materials  offered  by pressing the associated  letter or select with the arrow  and then press   RETURN.  Notice that the list of Current Selections at the bottom of the page will reflect your choice in  moderator.  If you would like to input data for  your own  moderator then  press "MD" and  see section  8.2 for instructions.
+
+      5.1.3 Selecting Reactor Coolant  
+
+      During  the DESIGN  PHASE, if  you press  "C" or  select Coolant,  the  Coolant menu  selection will  appear.  You can  select a  combination of primary  and secondary  coolants:  water &  water,  hydrogen open  loop, helium  &   water,  and  sodium   &  water.   Selecting   hydrogen  will automatically result in an OPEN  LOOP power conversion system otherwise, a CLOSED LOOP power conversion system will  be used.  
+
+      5.2 Selecting Reactor Geometry  
+
+      During the  REACTOR DESIGN Phase,  if you select  Geometry from the menu or click on the Geometry button of the toolbar an input window will appear for dimensional input. 
+
+FILES  DESIGN REACTOR  REACTOR RESULTS   HELP 
+       ....
+           Moderator
+           Geometry................Rectangular
+           Variables                Cylindrical  
+           Design Summary    Spherical   
+           Tools  
+                                       
+    You can select  any of the three available  core configurations pesented (Rectangular Parallelpiped,  Cylindrical, or Spherical).  When  you have made a selection, a data input screen will appear.  You can input values for the appropriate dimensions (in  centimeters).  The input value range is provided  along with  the default  value under  the input  line.   
+
+      5.2.1 Rectangular Geometry
+
+      For example,  if you choose reactangular  you input the length  in the x-direction, then the length in  the y-direction, and finally the length in the z-direction.    
+
+      5.2.2 Cylindrical Geometry
+
+    For cylindrical, you will be asked for the cylindrical radius and height of the reactor.   
+
+      5.2.3. Spherical Geometry
+
+    For spherical you will be asked for the radius.  The reactor geometry  assumes that the reactor is  a thermal homogeneous reactor and does NOT have a reflector region.  When you entered all data satisfactorily press RETURN to return to the DESIGN  PHASE menu.  
+
+
+      5.3 Variables (Input Values for Power Conversion System)  
+
+      During the DESIGN PHASE, if select Variables , the following input data screen will appear:
+
+      The program  starts with a set  of default values for  all parameters.
+    These values are listed in the  Appendices.  The program will keep these values until  you enter  a number  in an input  data screen.   Then your value will be used as long as the  program runs or until you enter a new value.  
+
+      The range of allowable values appears  below the input line along with  the default value with which the program begins.      
+
+      5.4 DESIGN 
+
+      In the DESIGN Phase if you  select Design from the submenu a diplay screen of your current selections or default values is shown as illustrated below for the standard defaults:     
+
+      5.5 TOOLS 
+
+    There are several  tools available from within the  program. 
+
+FILES   DESIGN REACTOR    OUTPUT     HELP 
+
+              Materials
+              Geometry
+              Variables
+              Design                                   
+
+      5.5.1 Database (available only in special version.)
+
+      The database can be used to store earlier designs or reactor concepts or exiting reactor information. You can review, add, modify, list, sort, and print the items and data from the database.
+
+      5.5.2 Maps
+
+      Maps of  states  along with  their reactor locations is available.
+
+
+ 
+
+
+    6.0 OUTPUT PHASE
+
+      6.1 OUTPUT PHASE Menu  
+
+      When you are satisfied with your design the DESIGN phase is over and you will next enter the OUTPUT PHASE by selecting RESULTS. The following is the OUTPUT PHASE menu:
+
+FILES  DESIGN REACTOR  REPORT RESULTS  HELP 
+
+                                                                                                                                                         
+      6.1.1 Diagram Results
+
+       If you select Diagram, a diagram  with results  for various components  of the  system.  Options 2  thru 5 present summary lists of results  for; the reactor, the Primary Coolant, the  Secondary  Coolant,  and  the  system  temperature,  pressure,  and flowrate state points, respectively. 
+
+       The critical mass  of fuel in kilograms of the  pure isotope is given for a thermal, homogeneous, non-reflected  nuclear reactor.  You can use the advanced option  (see Section 8.1) for providing your  own fuel data to account for alloyed fuels of various enrichments.
+
+       The  annual   fuel  burnup  is   based  on  running  at   100%  power continuously, while assuming  a 0% breeding rate.  the reactor geometric buckling  is computed  using the  formular in  section 9.0.  the reactor moderator to fuel ratio is  calculated using the Fermi age, homogeneous,criticality one-group, thermal equation.
+
+      6.1.2 Reactor Results 
+
+      During  the OUTPUT  PHASE, if  you select Reactor,  the
+following list of variables will be presented: (the values presented are the results of  calculations for the default reactor  parameters used in the example problem.)
+
+      6.1.3 Primary Coolant Results 
+
+      During  the OUTPUT  PHASE, if  you  select Primary,  the
+following list of variables will be presented: (the values presented are the results of  calculations for the default reactor  parameters used in the example problem.)
+
+      6.1.4 Secondary Coolant Results
+
+      During the OUTPUT PHASE, if you select REACTOR RESULTS / Secondary, from the menu or click on the Results Secondary button a list  of  the secondary coolant variables  will  be  presented  (the  initial values presented  are  the results  of  calculations  for the  default  reactor parameters used in the example problem.)                       
+ 
+7.0 FAILURE TO ACHIEVE CRITICALITY 
+
+       If  your  selections  of  materials  and  geometry  can  not  achieve criticality a warning screen will appear and you will be returned to the DESIGN PHASE in order for you to change the selections until you reach a critical configuration.
+    
+ 
+
+
+    8.0 ADVANCED LEVEL
+
+      8.1 Input Your Own Fuel Data  
+
+      During the  DESIGN PHASE, if you select Fuel  /  Define Your Own Fuel, or click & drag the Design Fuel icon over to the fuel selection area the list  of fuel variables  will be presented  for your  input.
+
+       Values of these parameters for  the fuels available in this program, are presented in Table I of Appendix A.
+
+      8.2 Input Your Own Moderator Data
+
+      During the DESIGN PHASE, if you select Moderator / Define Your Own Moderator or  click & drag the Design Mod icon over to the Moderator selection area  a list of variables will  be presented  for your input.
+
+  Values of these parameters for  the moderators available in this program, are presented in Table II of Appendix A.
+
+       Values  for these  parameters for  the moderators  available in  this program, are presented in Table II of Appendix A.
+
+
+ 
+
+            APPENDIX A
+
+            DATA TABLES
+
+           I. Reactor Fuels
+
+isotope	density	Mass	Eta	Xfiss	Xabs
+_______	_______	____	____	_____	_____
+	g/cc			barns	barns
+U-233	18.9	233	2.27	524	45
+U-235	18.9	235	2.06	577	106
+Pu-239	19.0	239	2.10	760	287
+Pu-241	19.0	241	2.06	988	378
+Cm-245	12.0	245	2.00	6000	1677
+Am-242	14.0	242	2.00	1700	331
+					
+					
+					
+
+            II. Reactor Moderators
+
+Mat	Diffusion	Fermi	Density	Xabs
+_______	_________	_______	_______	____
+Water	    7.6	   31	   1	.66
+HeavyH2O	10000	  121	   1.1	.002
+Berylium	  441	   84	   1.85	.01
+Carbon12	 4121	  350	   1.9	.004
+Carbon13	 4121	  350	   1.9	.002
+				
+				
+				
+ 
+           III. Reactor Coolants
+
+
+	Water	Hydrogen	Helium
+Heat Cap	1 to 1.2	1 to 3.95	1 to 1.1
+			
+Density 	1	0.009	0.009
+			
+
+             IV. Default Values
+
+Fuel	Uranium 235
+Moderator	Water
+Primary Coolant	Water
+Secondary Coolant	Water
+Geometry	1m x 1m x 1m
+Coolant Pressure 	92 atmospheres
+Porosity	.33
+Coolant Flowrate	10000 kg/sec
+Coolant Loop	Closed
+Coolant Tube dia.	0.4 cm
+	
+	
+	
+
+
+ 
+
+         APPENDIX :B
+
+   PROGRAM ASSUMPTIONS AND LIMITATIONS
+
+    1.  Thermal  group approximation, homogeneous reator  approximation, and Fermi age approximation were used to compute criticality.
+
+    2.  Maximum gas velocity of MACH 0.3 was used.
+
+
+ 
+
+            APPENDIC :C
+
+       NUCLEAR REACTOR EXAMPLES
+
+EXAMPLES	    PWR	     HWR	    Units
+__________	__________	__________	
+	Oconee 1	Pickering	
+Power (th)	    2584	    1742	    MW(t)
+Power 	     886	     508	    MW(e)
+Volume	      30.7	     265	    m^3
+Fuel	     UO2	     UO2	
+Mass	   83000	   92600	    kg
+Cool.Temp.	 563-591	 523-567	    deg. K
+Flowrate	   12600	   17700	    kg/sec
+Power Den.	      31.1   	      10	    w/g
+Heat Flux	      54.1	      59.2	    w/cm^2
+			
+			
+
+                                            
